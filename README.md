@@ -21,5 +21,11 @@ Daba ndoozo le test ==> dkhlo l main w lanciiwh comme une java application ==> k
 	==> Ila 3taaak haadi raah haadchi khadaam kiif bghina 
 	
 -------------------------------------------------------Jour 2 ;;; 
+mlli ghadkhlo l projet khskom tal9aaw 5 packages 3 3aamrin w waahd khaawi 
+
+tache btissam : ghadi t3aamri dak les models. dirina fiihom les donnes li khasina mlli tsali 9olihali nradhoom 3la chkl taable 
+Tache ilhaam t2akdina ghi mn java/resiources / application.preproties waach daakchi howa dyaal hibernate waach rahna ghadyiin shaah ok
+
+daak package repository li kaayn tamma raah howa li kaydwi m3a bd howa kaytkaalf bkoolchi 
 ajouter tous les packages necessaires
 Creer une inscription de base ;;; 
