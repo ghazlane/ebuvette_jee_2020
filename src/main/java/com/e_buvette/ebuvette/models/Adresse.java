@@ -1,4 +1,4 @@
-package com.e_buvette.models;
+package com.e_buvette.ebuvette.models;
 
 import java.io.Serializable;
 
@@ -11,8 +11,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Adresse {
-	
+public class Adresse implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

@@ -1,4 +1,4 @@
-package com.e_buvette.models;
+package com.e_buvette.ebuvette.models;
 
 import java.io.Serializable;
 
@@ -12,7 +12,11 @@ import com.sun.istack.NotNull;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Contact {
+public class Contact implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;

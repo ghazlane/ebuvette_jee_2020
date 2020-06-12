@@ -1,4 +1,4 @@
-package com.e_buvette.models;
+package com.e_buvette.ebuvette.models;
 
 import java.io.Serializable;
 
@@ -10,17 +10,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Produit{
+public class Produit implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	@NotNull 
+	@NotNull
 	private String nom;
 	@NotNull
 	private float prixUnitaire;
@@ -28,11 +32,13 @@ public class Produit{
 	private String tempPreparation;
 	private String imageProduit;
 	private String size;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "vendeur_id", nullable = false)
-	@JsonIgnore
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "vendeur")
 	private Vendeur vendeur;
+
+//	@OneToMany(mappedBy = "ligneCommande")
+//	private List<LigneCommande> listeLigneCommande;
 
 	public Produit() {
 		super();

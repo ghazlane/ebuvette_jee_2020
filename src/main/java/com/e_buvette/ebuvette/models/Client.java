@@ -1,9 +1,7 @@
-package com.e_buvette.models;
+package com.e_buvette.ebuvette.models;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,21 +10,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Client{
-	
+public class Client implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
-	
+
 //    @Size(max = 100)
 //    @Column(unique = true)
 	@NotNull
@@ -37,44 +35,23 @@ public class Client{
 	@Column(unique = true)
 	private String email;
 	private String numeroTelephone;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "adresse_id", nullable = true)
-	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "adresse")
 	private Adresse adresse;
-	
 	private String password;
-	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Commande> listCommande;
+
+//	@OneToMany(mappedBy = "commande")
+//	private Set<Commande> listCommande;
+
+//	@OneToMany(mappedBy = "commande")
+//	private List<Commande> listCommande;
 
 	public Client() {
-		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Client(String nom, String prenom, String email, String numeroTelephone, Adresse adresse) {
+	public Client(String nom, String prenom, String email, String numeroTelephone, Adresse adresse, String password) {
 		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.numeroTelephone = numeroTelephone;
-		this.adresse = adresse;
-	}
-
-	public Client(int id, String nom, String prenom, String email, String numeroTelephone, Adresse adresse) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.numeroTelephone = numeroTelephone;
-		this.adresse = adresse;
-	}
-
-	public Client(int id, String nom, String prenom, String email, String numeroTelephone, Adresse adresse,
-			String password) {
-		super();
-		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
@@ -137,6 +114,18 @@ public class Client{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+//	public List<Commande> getListCommande() {
+//		return listCommande;
+//	}
+//
+//	public void setListCommande(List<Commande> listCommande) {
+//		this.listCommande = listCommande;
+//	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

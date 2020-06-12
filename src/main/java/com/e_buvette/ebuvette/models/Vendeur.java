@@ -1,8 +1,8 @@
-package com.e_buvette.models;
+package com.e_buvette.ebuvette.models;
 
 import java.io.Serializable;
-import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,78 +10,52 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class Vendeur  {
+@Entity
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+public class Vendeur implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String nom;
-	private String Prenom;
+	private String prenom;
 	private String email;
 	private String nomMagasin;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "adresse_id", nullable = true)
-	@JsonIgnore
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "adresse")
 	private Adresse adresseMagasin;
-	
-	private List<String> serviceMagasin;
+
+//	@OneToMany(mappedBy = "vendeur")
+//	private List<Vendeur> listVendeur;
+
+//	@OneToMany(mappedBy = "produit")
+//	private List<Produit> listProduit;
+
+	private String serviceMagasin;
 	private String horaireOuverture;
 	private String horaireFermeture;
-	private List<Produit> listeProduits;
+//	private List<Produit> listeProduits;
 	private String passwor;
 
-	public Vendeur() {
-		super();
-	}
-
 	public Vendeur(int id, String nom, String prenom, String email, String nomMagasin, Adresse adresseMagasin,
-			List<String> serviceMagasin, String horaireOuverture, String horaireFermeture,
-			List<Produit> listeProduits) {
+			String serviceMagasin, String horaireOuverture, String horaireFermeture, String passwor) {
 		super();
 		this.id = id;
 		this.nom = nom;
-		Prenom = prenom;
+		this.prenom = prenom;
 		this.email = email;
 		this.nomMagasin = nomMagasin;
 		this.adresseMagasin = adresseMagasin;
 		this.serviceMagasin = serviceMagasin;
 		this.horaireOuverture = horaireOuverture;
 		this.horaireFermeture = horaireFermeture;
-		this.listeProduits = listeProduits;
-	}
-
-	public Vendeur(String nom, String prenom, String email, String nomMagasin, Adresse adresseMagasin,
-			List<String> serviceMagasin, String horaireOuverture, String horaireFermeture,
-			List<Produit> listeProduits) {
-		super();
-		this.nom = nom;
-		Prenom = prenom;
-		this.email = email;
-		this.nomMagasin = nomMagasin;
-		this.adresseMagasin = adresseMagasin;
-		this.serviceMagasin = serviceMagasin;
-		this.horaireOuverture = horaireOuverture;
-		this.horaireFermeture = horaireFermeture;
-		this.listeProduits = listeProduits;
-	}
-
-	public Vendeur(int id, String nom, String prenom, String email, String nomMagasin, Adresse adresseMagasin,
-			List<String> serviceMagasin, String horaireOuverture, String horaireFermeture, List<Produit> listeProduits,
-			String passwor) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		Prenom = prenom;
-		this.email = email;
-		this.nomMagasin = nomMagasin;
-		this.adresseMagasin = adresseMagasin;
-		this.serviceMagasin = serviceMagasin;
-		this.horaireOuverture = horaireOuverture;
-		this.horaireFermeture = horaireFermeture;
-		this.listeProduits = listeProduits;
 		this.passwor = passwor;
 	}
 
@@ -102,11 +76,11 @@ public class Vendeur  {
 	}
 
 	public String getPrenom() {
-		return Prenom;
+		return prenom;
 	}
 
 	public void setPrenom(String prenom) {
-		Prenom = prenom;
+		this.prenom = prenom;
 	}
 
 	public String getEmail() {
@@ -133,11 +107,11 @@ public class Vendeur  {
 		this.adresseMagasin = adresseMagasin;
 	}
 
-	public List<String> getServiceMagasin() {
+	public String getServiceMagasin() {
 		return serviceMagasin;
 	}
 
-	public void setServiceMagasin(List<String> serviceMagasin) {
+	public void setServiceMagasin(String serviceMagasin) {
 		this.serviceMagasin = serviceMagasin;
 	}
 
@@ -157,20 +131,16 @@ public class Vendeur  {
 		this.horaireFermeture = horaireFermeture;
 	}
 
-	public List<Produit> getListeProduits() {
-		return listeProduits;
-	}
-
-	public void setListeProduits(List<Produit> listeProduits) {
-		this.listeProduits = listeProduits;
-	}
-
 	public String getPasswor() {
 		return passwor;
 	}
 
 	public void setPasswor(String passwor) {
 		this.passwor = passwor;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
