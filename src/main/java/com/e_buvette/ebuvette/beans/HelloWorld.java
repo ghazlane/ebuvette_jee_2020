@@ -19,5 +19,9 @@ public class HelloWorld {
 	public String getMessage() {
 		return "Hello World";
 	}
+	
+	public String pageInscription() {
+		return	"inscription";
+	}
 
 }
