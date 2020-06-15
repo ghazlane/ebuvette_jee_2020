@@ -3,20 +3,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui ="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
+
 </h:head>
 
 <h:body>
-<h1>Inscription </h1>
-    	
-	 <h:form>
-		<h:commandLink action="#{home.getHome}" value="Home">
-		</h:commandLink>
-		<br />
-		<h:commandLink action="#{home.getInscriptionClient}" value="Inscription">
-		</h:commandLink>
-	</h:form> 
+<ui:include src = "home.xhtml"/>
+
+<h1>Inscription Client</h1>
+
+<h:form>
+	<h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel value="Nom : " for="nom" />
+        <p:inputText id="nom" />
+ 	</h:panelGrid>
+ 	<h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel value="Prénom : " for="prenom" />
+        <p:inputText id="prenom" />
+ 	</h:panelGrid>
+ 	
+ 	<h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel value="Email : " for="email" />
+        <p:inputText id="email" />
+ 	</h:panelGrid>
+ 	<h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel value="Numéro téléphone : " for="numeroTelephone" />
+        <p:inputText id="numeroTelephone" />
+ 	</h:panelGrid>
+ 	
+ 	<h:panelGrid columns="2" cellpadding="5">
+       <p:outputLabel value="Mot de passe : " for="password " />
+        <p:inputText id="password" />
+ 	</h:panelGrid>
+ 	
+ 	<h:panelGrid columns="2" cellpadding="5">
+       <p:outputLabel value="Confirmer mot de passe : " for="passwordvalidation " />
+        <p:inputText id="passwordvalidation" />
+ 	</h:panelGrid>
+ 	<h:panelGrid columns="2" cellpadding="10">
+       <p:outputLabel value="Adresse : " for="adresse " />
+        <p:inputTextarea id="adresse"  rows="3"/>
+ 	</h:panelGrid>
+ 	<h:panelGrid columns="4" cellpadding="10">
+       <p:outputLabel value="Ville : " for="ville " />
+        <p:inputText id="ville"/>
+        <p:outputLabel value="Code postal : " for="codepostal " />
+        <p:inputText id="codepostal"  />
+ 	</h:panelGrid>
+</h:form>
+
 </h:body>
 </html>
