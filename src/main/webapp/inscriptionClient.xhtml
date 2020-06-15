@@ -18,30 +18,30 @@
 <h:form>
 	<h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Nom : " for="nom" />
-        <p:inputText id="nom" />
+        <p:inputText id="nom" required="true" value="#{clientBean.client.nom}"/>
  	</h:panelGrid>
  	<h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Prénom : " for="prenom" />
-        <p:inputText id="prenom" />
+        <p:inputText id="prenom" required="true" value="#{clientBean.client.prenom}"/>
  	</h:panelGrid>
  	
  	<h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Email : " for="email" />
-        <p:inputText id="email" />
+        <p:inputText id="email" required="true"/>
  	</h:panelGrid>
  	<h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Numéro téléphone : " for="numeroTelephone" />
-        <p:inputText id="numeroTelephone" />
+        <p:inputText id="numeroTelephone" required="true"/>
  	</h:panelGrid>
  	
  	<h:panelGrid columns="2" cellpadding="5">
        <p:outputLabel value="Mot de passe : " for="password " />
-        <p:inputText id="password" />
+        <p:inputText id="password" required="true"/>
  	</h:panelGrid>
  	
  	<h:panelGrid columns="2" cellpadding="5">
        <p:outputLabel value="Confirmer mot de passe : " for="passwordvalidation " />
-        <p:inputText id="passwordvalidation" />
+        <p:inputText id="passwordvalidation" required="true"/>
  	</h:panelGrid>
  	<h:panelGrid columns="2" cellpadding="10">
        <p:outputLabel value="Adresse : " for="adresse " />
@@ -51,8 +51,9 @@
        <p:outputLabel value="Ville : " for="ville " />
         <p:inputText id="ville"/>
         <p:outputLabel value="Code postal : " for="codepostal " />
-        <p:inputText id="codepostal"  />
+        <p:inputText id="codepostal"/>
  	</h:panelGrid>
+ 	
 </h:form>
 
 </h:body>
