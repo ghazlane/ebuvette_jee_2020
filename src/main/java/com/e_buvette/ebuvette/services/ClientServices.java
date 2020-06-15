@@ -7,6 +7,7 @@ import com.e_buvette.ebuvette.repository.ClientRepository;
 public class ClientServices {
 	// injection de notre repository
 	@Autowired
+
 	private ClientRepository clientRepository;
 
 }
