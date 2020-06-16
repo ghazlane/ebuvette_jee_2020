@@ -27,16 +27,16 @@
  	
  	<h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Email : " for="email" />
-        <p:inputText id="email" required="true"/>
+        <p:inputText id="email" required="true" value="#{clientBean.client.email}"/>
  	</h:panelGrid>
  	<h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Numéro téléphone : " for="numeroTelephone" />
-        <p:inputText id="numeroTelephone" required="true"/>
+        <p:inputText id="numeroTelephone" required="true" value="#{clientBean.client.numeroTelephone}"/>
  	</h:panelGrid>
  	
  	<h:panelGrid columns="2" cellpadding="5">
        <p:outputLabel value="Mot de passe : " for="password " />
-        <p:inputText id="password" required="true"/>
+        <p:inputText id="password" required="true" value="#{clientBean.client.password}"/>
  	</h:panelGrid>
  	
  	<h:panelGrid columns="2" cellpadding="5">
@@ -44,16 +44,17 @@
         <p:inputText id="passwordvalidation" required="true"/>
  	</h:panelGrid>
  	<h:panelGrid columns="2" cellpadding="10">
-       <p:outputLabel value="Adresse : " for="adresse " />
-        <p:inputTextarea id="adresse"  rows="3"/>
+       <p:outputLabel value="Adresse : " for="adresse"/>
+        <p:inputTextarea id="adresse"  rows="3" value="#{clientBean.client.adresse.adresse}"/>
  	</h:panelGrid>
  	<h:panelGrid columns="4" cellpadding="10">
        <p:outputLabel value="Ville : " for="ville " />
-        <p:inputText id="ville"/>
+        <p:inputText id="ville" value="#{clientBean.client.adresse.ville}"/>
         <p:outputLabel value="Code postal : " for="codepostal " />
-        <p:inputText id="codepostal"/>
- 	</h:panelGrid>
- 	
+        <p:inputText id="codepostal" value="#{clientBean.client.adresse.codePostal}"/>
+ 	</h:panelGrid> 
+ 	<h:commandButton value="Inscription"
+					action="#{clientBean.ajouterClient}" styleClass="sansLabel" />
 </h:form>
 
 </h:body>
