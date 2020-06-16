@@ -2,6 +2,7 @@ package com.e_buvette.ebuvette.models;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,7 +36,7 @@ public class Client implements Serializable {
 	@Column(unique = true)
 	private String email;
 	private String numeroTelephone;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "adresse")
 	private Adresse adresse;
 	private String password;

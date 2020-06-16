@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="templateAdministrateur.xhtml">
+   
+   <ui:define name="content">
+        <h1>Liste des clients</h1>
+        
+        <p:dataTable var="client" value="#{clientController.listeClient}">
+    <p:column headerText="Id">
+        <h:outputText value="#{client.id}" />
+    </p:column>
+ 
+    <p:column headerText="Nom">
+        <h:outputText value="#{client.nom}" />
+    </p:column>
+ 
+    <p:column headerText="Prénom">
+        <h:outputText value="#{client.prenom}" />
+    </p:column>
+ 
+    <p:column headerText="Email">
+        <h:outputText value="#{client.email}" />
+    </p:column>
+     <p:column headerText="Action">
+    		<h:form>
+			<h:commandLink action="#{clientController.detailsClient(client.id)}" value="Détails">
+			 <!-- <f:param name="id" value="#{client.id}" /> -->
+		</h:commandLink>
+		</h:form>
+     	
+        <!-- <h:outputText value="vide" /> -->
+    </p:column>
+    
+</p:dataTable>
+
+
+        </ui:define>
+</ui:composition>
+
+</html>

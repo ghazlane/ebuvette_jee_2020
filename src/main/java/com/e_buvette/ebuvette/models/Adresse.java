@@ -39,6 +39,10 @@ public class Adresse implements Serializable {
 		this.adresse = adresse;
 	}
 
+	public Adresse() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}

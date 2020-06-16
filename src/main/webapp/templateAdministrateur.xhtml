@@ -14,7 +14,39 @@
     <h:body>
         <div class="ui-g">
             <div class="ui-g-12">
-                <h1>Je suis le home</h1>
+                <h:form>  
+    <p:growl id="messages"/>
+    <p:menubar>
+        <p:submenu label="Client" icon="pi pi-file">
+            <p:menuitem value="Ajouter" action="#{clientController.formulaireInscription}"/>
+            <p:menuitem value="Lister" action="#{clientController.listClient}" />
+        </p:submenu>
+        <p:submenu label="Vendeur" icon="pi pi-file">
+            <p:menuitem value="Ajouter" url="#" />
+            <p:menuitem value="Lister" url="#" />
+        </p:submenu>
+        <p:submenu label="Produit" icon="pi pi-file">
+            <p:menuitem value="Ajouter" url="#" />
+            <p:menuitem value="Lister" url="#" />
+        </p:submenu>
+        <p:submenu label="Contact" icon="pi pi-file">
+            <p:menuitem value="Ajouter" url="#" />
+            <p:menuitem value="Lister" url="#" />
+        </p:submenu>
+         <p:submenu label="Commande" icon="pi pi-file">
+            <p:menuitem value="Ajouter" url="#" />
+            <p:menuitem value="Lister" url="#" />
+        </p:submenu>
+        <p:submenu label="Reservation" icon="pi pi-file">
+            <p:menuitem value="Ajouter" url="#" />
+            <p:menuitem value="Lister" url="#" />
+        </p:submenu>
+        <f:facet name="options">
+            <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search"/>
+            <p:commandButton type="button" value="Logout" icon="pi pi-home" />
+        </f:facet>
+    </p:menubar>
+</h:form>
             </div>
             <div class="ui-g-12">
                 <ui:insert name="content" />
