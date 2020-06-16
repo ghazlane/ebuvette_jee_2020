@@ -4,21 +4,22 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-
-  <ui:composition template="templateAdministrateur.xhtml">
-   
-   <ui:define name="content">
+<f:view>
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>E-buvette</title>
+    </h:head>
+    <h:body>
         <div class="ui-g">
             <div class="ui-g-12">
-                <p:toolbar>
-                    <h1> Je suis lient</h1>
-                </p:toolbar>
+                <h1>Je suis le home</h1>
             </div>
             <div class="ui-g-12">
                 <ui:insert name="content" />
             </div>
         </div>
-        </ui:define>
-    </ui:composition>
-
+    </h:body>
+</f:view>
 </html>

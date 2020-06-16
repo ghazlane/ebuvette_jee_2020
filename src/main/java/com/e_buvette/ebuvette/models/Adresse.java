@@ -24,10 +24,6 @@ public class Adresse implements Serializable {
 	private String codePostal;
 	private String adresse;
 
-	public Adresse() {
-		super();
-	}
-
 	public Adresse(int id, String ville, String codePostal, String adresse) {
 		super();
 		this.id = id;
