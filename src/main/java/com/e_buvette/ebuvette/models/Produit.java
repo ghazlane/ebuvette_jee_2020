@@ -30,6 +30,7 @@ public class Produit implements Serializable {
 	private float prixUnitaire;
 	private int stock;
 	private String tempPreparation;
+
 	private String imageProduit;
 	private String size;
 

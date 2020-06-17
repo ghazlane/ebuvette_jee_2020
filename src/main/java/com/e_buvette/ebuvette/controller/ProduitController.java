@@ -49,6 +49,7 @@ public class ProduitController {
 	public String nouveauProduit() {
 //		System.out.println("je suis ici");
 		this.produit = new Produit();
+		this.produit.setStock(1);
 //		this.produit.setAdresse(new Adresse());
 		return "/produit/nouveauProduit.xhtml?faces-redirect=true";
 	}

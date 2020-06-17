@@ -21,19 +21,31 @@
 					value="#{produitController.produit.prixUnitaire}" />
 			</h:panelGrid>
 
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Disponibilté : " for="stock" />
-				<p:inputText id="stock" required="true"
-					value="#{produitController.produit.stock}" />
+			
+
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				
+				<p:outputLabel value="Produit dipsonible  : " />
+				<p:selectOneButton value="#{produitController.produit.stock}">
+					<f:selectItem itemLabel="Oui" itemValue="1" />
+					<f:selectItem itemLabel="Non" itemValue="0" />
+				</p:selectOneButton>
 			</h:panelGrid>
+
+
 			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Temp de préparation : " for="temp" />
+				<p:outputLabel value="Temp de préparation em Min: " for="temp" />
 				<p:inputText id="temp" required="true"
 					value="#{produitController.produit.tempPreparation}" />
 			</h:panelGrid>
 
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel value="Image Produit : " for="image " />
+				
+				<p:fileUpload listener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="true"
+                  update="messages" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                  
+                  
 				<p:inputText id="image" required="true"
 					value="#{produitController.produit.imageProduit}" />
 			</h:panelGrid>
