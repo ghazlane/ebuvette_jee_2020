@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../templateAdministrateur.xhtml">
+
+	<ui:define name="content">
+		<h1>Formulaire Inscription Client</h1>
+
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Nom : " for="nom" />
+				<p:inputText id="nom" required="true"
+					value="#{contactController.contact.nom}" />
+			</h:panelGrid>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Prénom : " for="prenom" />
+				<p:inputText id="prenom" required="true"
+					value="#{contactController.contact.prenom}" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Email : " for="email" />
+				<p:inputText id="email" required="true"
+					value="#{contactController.contact.email}" />
+			</h:panelGrid>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Objet : " for="objet" />
+				<p:inputText id="objet" required="true"
+					value="#{contactController.contact.objet}" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" cellpadding="10">
+				<p:outputLabel value="message : " for="message" />
+				<p:inputTextarea id="message" rows="3"
+					value="#{contactController.contact.message}" />
+			</h:panelGrid>
+			<h:commandButton value="Envoyer Message"
+				action="#{contactController.saveContact}" styleClass="sansLabel" />
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
