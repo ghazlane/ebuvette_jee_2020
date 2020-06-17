@@ -80,6 +80,12 @@ public class ClientController {
 		return "/inscriptionClient.xhtml?faces-redirect=true";
 	}
 
+	@Transactional
+	public String deleteClient(int id) {
+		this.clientRepository.delete(this.clientRepository.getOne(id));
+		return this.listClient();
+	}
+
 	public Client getClient() {
 		return client;
 	}
