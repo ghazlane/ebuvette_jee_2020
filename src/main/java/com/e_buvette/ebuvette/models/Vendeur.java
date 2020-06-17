@@ -2,6 +2,7 @@ package com.e_buvette.ebuvette.models;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,9 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.transaction.Transactional;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@Transactional
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Vendeur implements Serializable {
@@ -28,7 +31,9 @@ public class Vendeur implements Serializable {
 	private String email;
 	private String nomMagasin;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	private String numTelephone;
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "adresse")
 	private Adresse adresseMagasin;
 
@@ -42,10 +47,14 @@ public class Vendeur implements Serializable {
 	private String horaireOuverture;
 	private String horaireFermeture;
 //	private List<Produit> listeProduits;
-	private String passwor;
+	private String password;
+
+	public Vendeur() {
+		super();
+	}
 
 	public Vendeur(int id, String nom, String prenom, String email, String nomMagasin, Adresse adresseMagasin,
-			String serviceMagasin, String horaireOuverture, String horaireFermeture, String passwor) {
+			String serviceMagasin, String horaireOuverture, String horaireFermeture, String password) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -56,7 +65,7 @@ public class Vendeur implements Serializable {
 		this.serviceMagasin = serviceMagasin;
 		this.horaireOuverture = horaireOuverture;
 		this.horaireFermeture = horaireFermeture;
-		this.passwor = passwor;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -131,16 +140,24 @@ public class Vendeur implements Serializable {
 		this.horaireFermeture = horaireFermeture;
 	}
 
-	public String getPasswor() {
-		return passwor;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswor(String passwor) {
-		this.passwor = passwor;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getNumTelephone() {
+		return numTelephone;
+	}
+
+	public void setNumTelephone(String numTelephone) {
+		this.numTelephone = numTelephone;
 	}
 
 }

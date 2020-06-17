@@ -24,8 +24,8 @@
 								action="#{clientController.listClient}" />
 						</p:submenu>
 						<p:submenu label="Vendeur" icon="pi pi-file">
-							<p:menuitem value="Ajouter" url="#" />
-							<p:menuitem value="Lister" url="#" />
+							<p:menuitem value="Ajouter" action="#{vendeurController.formulaireInscription}"  />
+							<p:menuitem value="Lister" action="#{vendeurController.listVendeur}" />
 						</p:submenu>
 						<p:submenu label="Produit" icon="pi pi-file">
 							<p:menuitem value="Ajouter" url="#" />
