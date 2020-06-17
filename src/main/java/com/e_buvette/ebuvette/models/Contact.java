@@ -30,6 +30,10 @@ public class Contact implements Serializable {
 	@NotNull
 	private String objet;
 
+	public Contact() {
+		super();
+	}
+
 	public Contact(int id, String nom, String prenom, String email, String message, String objet) {
 		super();
 		this.id = id;

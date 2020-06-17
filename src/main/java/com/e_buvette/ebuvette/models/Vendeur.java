@@ -30,19 +30,14 @@ public class Vendeur implements Serializable {
 	private String prenom;
 	private String email;
 	private String nomMagasin;
-
 	private String numTelephone;
-
 	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "adresse")
 	private Adresse adresseMagasin;
-
 //	@OneToMany(mappedBy = "vendeur")
 //	private List<Vendeur> listVendeur;
-
 //	@OneToMany(mappedBy = "produit")
 //	private List<Produit> listProduit;
-
 	private String serviceMagasin;
 	private String horaireOuverture;
 	private String horaireFermeture;

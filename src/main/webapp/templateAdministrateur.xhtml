@@ -28,12 +28,12 @@
 							<p:menuitem value="Lister" action="#{vendeurController.listVendeur}" />
 						</p:submenu>
 						<p:submenu label="Produit" icon="pi pi-file">
-							<p:menuitem value="Ajouter" url="#" />
+							<p:menuitem value="Ajouter" />
 							<p:menuitem value="Lister" url="#" />
 						</p:submenu>
 						<p:submenu label="Contact" icon="pi pi-file">
-							<p:menuitem value="Ajouter" url="#" />
-							<p:menuitem value="Lister" url="#" />
+							<p:menuitem value="Ajouter" action="#{contactController.formulaireContact}" />
+							<p:menuitem value="Lister" action="#{contactController.listContact}" />
 						</p:submenu>
 						<p:submenu label="Commande" icon="pi pi-file">
 							<p:menuitem value="Ajouter" url="#" />
