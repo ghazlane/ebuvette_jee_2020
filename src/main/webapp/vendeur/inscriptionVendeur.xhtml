@@ -32,7 +32,7 @@
 				<p:inputText id="nomMagasin" required="true"
 					value="#{vendeurController.vendeur.nomMagasin}" />
 			</h:panelGrid>
-			
+
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel value="Numéro téléphone : " for="numeroTelephone" />
 				<p:inputText id="numeroTelephone" required="true"
@@ -63,7 +63,7 @@
 				<p:inputText id="codepostal"
 					value="#{vendeurController.vendeur.adresseMagasin.codePostal}" />
 			</h:panelGrid>
-			
+
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel value="Service Magasin : " for="serviceMagasin" />
 				<p:inputText id="serviceMagasin" required="true"
@@ -79,7 +79,7 @@
 				<p:inputText id="horaireFermeture" required="true"
 					value="#{vendeurController.vendeur.horaireFermeture}" />
 			</h:panelGrid>
-			
+
 			<h:commandButton value="Inscription"
 				action="#{vendeurController.saveVendeur}" styleClass="sansLabel" />
 		</h:form>

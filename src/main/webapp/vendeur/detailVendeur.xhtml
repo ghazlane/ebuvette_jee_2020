@@ -28,8 +28,8 @@
 			<h:outputText value="#{vendeurController.vendeur.numTelephone}"
 				style="font-weight: bold" />
 		</h:panelGrid>
-		
-		
+
+
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Non Magasin : " />
 			<h:outputText value="#{vendeurController.vendeur.nomMagasin}"
@@ -52,24 +52,26 @@
 		</h:panelGrid>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Mot de passe : " />
-			<h:outputText value="*********"
-				style="font-weight: bold" />
+			<h:outputText value="*********" style="font-weight: bold" />
 		</h:panelGrid>
-		
-		
+
+
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Ville : " />
-			<h:outputText value="#{vendeurController.vendeur.adresseMagasin.ville}"
+			<h:outputText
+				value="#{vendeurController.vendeur.adresseMagasin.ville}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Code postal : " />
-			<h:outputText value="#{vendeurController.vendeur.adresseMagasin.codePostal}"
+			<h:outputText
+				value="#{vendeurController.vendeur.adresseMagasin.codePostal}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="adresse : " />
-			<h:outputText value="#{vendeurController.vendeur.adresseMagasin.adresse}"
+			<h:outputText
+				value="#{vendeurController.vendeur.adresseMagasin.adresse}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 	</ui:define>
