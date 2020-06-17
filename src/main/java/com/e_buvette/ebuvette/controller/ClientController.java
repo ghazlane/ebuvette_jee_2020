@@ -47,7 +47,7 @@ public class ClientController {
 //		System.out.println("je suis ici");
 		this.client = new Client();
 		this.client.setAdresse(new Adresse());
-		return "/inscriptionClient.xhtml?faces-redirect=true";
+		return "/clientPackage/inscriptionClient.xhtml?faces-redirect=true";
 	}
 
 	public String saveClient() {
@@ -55,7 +55,7 @@ public class ClientController {
 		clientRepository.save(client);
 		clientRepository.flush();
 		// client = new Client();
-		return "/messageSucces.xhtml?faces-redirect=true";
+		return "/clientPackage/messageSucces.xhtml?faces-redirect=true";
 	}
 
 	public String listClient() {
@@ -63,21 +63,21 @@ public class ClientController {
 //		for (Client client : listeClient) {
 //			System.out.println("----------->" + client.getNom());
 //		}
-		return "/listClient.xhtml?faces-redirect=true";
+		return "/clientPackage/listClient.xhtml?faces-redirect=true";
 	}
 
 	public String detailsClient(int id) {
 		this.client = this.clientRepository.getOne(id);
 		System.out.println("----->" + client.getNom());
 		// System.out.println("parfait" + id);
-		return "/detailClient.xhtml?faces-redirect=true";
+		return "/clientPackage/detailClient.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
 	public String updateClient(int id) {
 		this.client = this.clientRepository.getOne(id);
 		System.out.println("----->" + client.getNom());
-		return "/inscriptionClient.xhtml?faces-redirect=true";
+		return "/clientPackage/inscriptionClient.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
