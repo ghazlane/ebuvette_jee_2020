@@ -10,37 +10,66 @@
 		<h1>Detail d'un client</h1>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Nom : " />
-			<h:outputText value="#{clientController.client.nom}"
+			<h:outputText value="#{vendeurController.vendeur.nom}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Prénom : " />
-			<h:outputText value="#{clientController.client.prenom}"
+			<h:outputText value="#{vendeurController.vendeur.prenom}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Email : " />
-			<h:outputText value="#{clientController.client.email}"
+			<h:outputText value="#{vendeurController.vendeur.email}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Numéro Téléphone : " />
-			<h:outputText value="#{clientController.client.numeroTelephone}"
+			<h:outputText value="#{vendeurController.vendeur.numTelephone}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		
+		
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Non Magasin : " />
+			<h:outputText value="#{vendeurController.vendeur.nomMagasin}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Services magasin : " />
+			<h:outputText value="#{vendeurController.vendeur.serviceMagasin}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Horaire ouverture: " />
+			<h:outputText value="#{vendeurController.vendeur.horaireOuverture}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Horaire Fermeture : " />
+			<h:outputText value="#{vendeurController.vendeur.horaireFermeture}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Mot de passe : " />
+			<h:outputText value="*********"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		
+		
+		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Ville : " />
-			<h:outputText value="#{clientController.client.adresse.ville}"
+			<h:outputText value="#{vendeurController.vendeur.adresseMagasin.ville}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Code postal : " />
-			<h:outputText value="#{clientController.client.adresse.codePostal}"
+			<h:outputText value="#{vendeurController.vendeur.adresseMagasin.codePostal}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="adresse : " />
-			<h:outputText value="#{clientController.client.adresse.adresse}"
+			<h:outputText value="#{vendeurController.vendeur.adresseMagasin.adresse}"
 				style="font-weight: bold" />
 		</h:panelGrid>
 	</ui:define>

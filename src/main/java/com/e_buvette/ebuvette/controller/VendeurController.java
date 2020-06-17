@@ -76,7 +76,7 @@ public class VendeurController {
 	@Transactional
 	public String updateVendeur(int id) {
 		this.vendeur = this.vendeurRepository.getOne(id);
-//		System.out.println("----->" + vendeur.getNom());
+		System.out.println("----->" + vendeur.getNom());
 		return "/vendeur/inscriptionVendeur.xhtml?faces-redirect=true";
 	}
 

@@ -53,15 +53,15 @@
 			<h:panelGrid columns="2" cellpadding="10">
 				<p:outputLabel value="Adresse : " for="adresse" />
 				<p:inputTextarea id="adresse" rows="3"
-					value="#{clientController.client.adresse.adresse}" />
+					value="#{vendeurController.vendeur.adresseMagasin.adresse}" />
 			</h:panelGrid>
 			<h:panelGrid columns="4" cellpadding="10">
 				<p:outputLabel value="Ville : " for="ville " />
 				<p:inputText id="ville"
-					value="#{clientController.client.adresse.ville}" />
+					value="#{vendeurController.vendeur.adresseMagasin.ville}" />
 				<p:outputLabel value="Code postal : " for="codepostal " />
 				<p:inputText id="codepostal"
-					value="#{clientController.client.adresse.codePostal}" />
+					value="#{vendeurController.vendeur.adresseMagasin.codePostal}" />
 			</h:panelGrid>
 			
 			<h:panelGrid columns="2" cellpadding="5">
