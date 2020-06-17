@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../templateAdministrateur.xhtml">
+
+	<ui:define name="content">
+		<h1>Formulaire Ajout Nouveau Produit</h1>
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Titre : " for="nom" />
+				<p:inputText id="nom" required="true"
+					value="#{produitController.produit.nom}" />
+			</h:panelGrid>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Prix Unitaire en DH: " for="prix" />
+				<p:inputText id="prix" required="true"
+					value="#{produitController.produit.prixUnitaire}" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Disponibilté : " for="stock" />
+				<p:inputText id="stock" required="true"
+					value="#{produitController.produit.stock}" />
+			</h:panelGrid>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Temp de préparation : " for="temp" />
+				<p:inputText id="temp" required="true"
+					value="#{produitController.produit.tempPreparation}" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel value="Image Produit : " for="image " />
+				<p:inputText id="image" required="true"
+					value="#{produitController.produit.imageProduit}" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" cellpadding="10">
+				<p:outputLabel value="Taille : " for="size" />
+				<p:inputTextarea id="size" rows="3"
+					value="#{produitController.produit.size}" />
+			</h:panelGrid>
+			<h:commandButton value="Ajouter"
+				action="#{produitController.saveProduit}" styleClass="sansLabel" />
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
