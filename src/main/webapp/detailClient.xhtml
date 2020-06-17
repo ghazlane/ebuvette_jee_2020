@@ -6,9 +6,52 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="templateAdministrateur.xhtml">
-   
    <ui:define name="content">
         <h1>Detail d'un client</h1>
+
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Nom : " />
+			<h:outputText value="#{clientController.client.nom}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Prénom : " />
+			<h:outputText value="#{clientController.client.prenom}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Email : " />
+			<h:outputText value="#{clientController.client.email}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Numéro Téléphone : " />
+			<h:outputText value="#{clientController.client.numeroTelephone}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Ville : " />
+			<h:outputText value="#{clientController.client.adresse.ville}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="Code postal : " />
+			<h:outputText value="#{clientController.client.adresse.codePostal}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:outputText value="adresse : " />
+			<h:outputText value="#{clientController.client.adresse.adresse}"
+				style="font-weight: bold" />
+		</h:panelGrid>
+
+		 <!-- <h:panelGrid columns="2" cellpadding="5">
+      <h:outputText value="Téléphone : " />
+                    <h:outputText value="#{clientController.client.numeroTelephone}" style="font-weight: bold"/>
+ 	</h:panelGrid> -->
+ 	
+ 	
         </ui:define>
 </ui:composition>
 

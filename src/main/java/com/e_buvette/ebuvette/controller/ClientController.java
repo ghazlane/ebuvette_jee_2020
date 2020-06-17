@@ -3,6 +3,8 @@ package com.e_buvette.ebuvette.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.ocpsoft.rewrite.annotation.Join;
 import org.ocpsoft.rewrite.annotation.RequestAction;
 import org.ocpsoft.rewrite.el.ELBeanName;
@@ -16,6 +18,7 @@ import com.e_buvette.ebuvette.models.Adresse;
 import com.e_buvette.ebuvette.models.Client;
 import com.e_buvette.ebuvette.repository.ClientRepository;
 
+@Transactional
 @Scope(value = "session")
 @Component(value = "clientController")
 @ELBeanName(value = "clientController")
@@ -42,6 +45,8 @@ public class ClientController {
 
 	public String formulaireInscription() {
 //		System.out.println("je suis ici");
+		this.client = new Client();
+		this.client.setAdresse(new Adresse());
 		return "/inscriptionClient.xhtml?faces-redirect=true";
 	}
 
@@ -50,7 +55,7 @@ public class ClientController {
 		clientRepository.save(client);
 		clientRepository.flush();
 		// client = new Client();
-		return "/client.xhtml?faces-redirect=true";
+		return "/messageSucces.xhtml?faces-redirect=true";
 	}
 
 	public String listClient() {
@@ -63,9 +68,20 @@ public class ClientController {
 
 	public String detailsClient(int id) {
 		this.client = this.clientRepository.getOne(id);
-		// System.out.println("----->" + client.getNom());
+		System.out.println("----->" + client.getNom());
 		// System.out.println("parfait" + id);
 		return "/detailClient.xhtml?faces-redirect=true";
+	}
+
+	@Transactional
+	public String updateClient(int id) {
+		this.client = this.clientRepository.getOne(id);
+		System.out.println("----->" + client.getNom());
+		return "/inscriptionClient.xhtml?faces-redirect=true";
+	}
+
+	public Client getClient() {
+		return client;
 	}
 
 	public void setClient(Client client) {
