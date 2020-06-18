@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="../templateInscription.xhtml">
+
+	<ui:define name="content">
+
+		<div class="card-body">
+			<h2 class="title">Inscription Client</h2>
+			<h:form id="id_inscription_formulaire">
+				<h:outputText value="Nom Complet" /><p:spacer height="4" />
+							<div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+									<p:inputText id="id_inscription_nom" class="inscription_nom"
+										value=""
+										label="nom"
+										validatorMessage=""
+										required="true" >
+										<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
+									</p:inputText>
+									<p:watermark for="id_inscription_nom"
+										value="nom"
+										id="id_inscription_nom_watermark" />
+									</div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+									<p:inputText id="id_inscription_prenom" class="inscription_prenom"
+										value=""
+										label="prénom"
+										validatorMessage=""
+										required="true" >
+										<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
+									</p:inputText>
+									<p:watermark for="id_inscription_prenom"
+										value="prénom"
+										id="id_inscription_prenom_watermark" />
+								</div>
+                            </div>
+                        </div>
+			</h:form>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

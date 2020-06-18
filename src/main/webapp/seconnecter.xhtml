@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="templateInscription.xhtml">
+
+	<ui:define name="content">
+
+		<div class="card-body">
+			<h2 class="title">Se connecter</h2>
+			<h:form id="id_connexion_formulaire">
+				
+				<div class="input-group">
+					<p:inputText class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"
+						value="" required="true">
+						<f:validateRegex
+							pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+					</p:inputText>
+				</div>
+				<div class="input-group">
+					<p:password class="input--style-2 input" placeholder="Mot de passe" 
+						value=""  required="true" feedback="true" />
+				</div>
+				<div class="p-t-30">
+					<p:commandButton class="btn btn--radius btn--green " value="Se connecter"
+										update="id_connexion_formulaire"
+										 />
+				</div>
+			</h:form>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
