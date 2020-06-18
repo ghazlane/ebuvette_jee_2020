@@ -6,12 +6,12 @@
 
 	<ui:define name="content">
 
-		<div class="card-body">
+		<div class="card-body" style="padding-top: 100px; margin-top: 100px">
 			<h2 class="title">Se connecter</h2>
 			<h:form id="id_connexion_formulaire">
 				
 				<div class="input-group">
-					<p:inputText class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"
+					<p:inputText class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"  style="width: 400px;"
 						value="" required="true">
 						<f:validateRegex
 							pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
