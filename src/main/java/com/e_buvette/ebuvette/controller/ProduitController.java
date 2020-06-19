@@ -3,6 +3,7 @@ package com.e_buvette.ebuvette.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.annotation.MultipartConfig;
 import javax.transaction.Transactional;
 
 import org.ocpsoft.rewrite.annotation.Join;
@@ -23,6 +24,7 @@ import com.e_buvette.ebuvette.repository.VendeurRepository;
 @Component(value = "produitController")
 @ELBeanName(value = "produitController")
 @Join(path = "/produit", to = "/produit-form.jsf")
+@MultipartConfig
 public class ProduitController {
 	@Autowired
 	private ProduitRepository produitRepository;
@@ -31,6 +33,10 @@ public class ProduitController {
 
 	private Produit produit;
 	private List<Produit> listeProduit;
+
+//	private UploadedFile file;
+
+//	private Part file2;
 
 	public ProduitController() {
 		this.produit = new Produit();
@@ -55,7 +61,7 @@ public class ProduitController {
 	}
 
 	public String saveProduit() {
-//		System.out.println("je suis save client");
+		System.out.println("je suis save client");
 		produit.setvendeur(this.vendeurRepository.getOne(21));
 		produitRepository.save(produit);
 		produitRepository.flush();
@@ -63,6 +69,7 @@ public class ProduitController {
 		return "/produit/messageSucces.xhtml?faces-redirect=true";
 	}
 
+	@Transactional
 	public String listProduit() {
 		this.listeProduit = this.produitRepository.findAll();
 //		for (Client client : listeClient) {
@@ -75,7 +82,7 @@ public class ProduitController {
 		this.produit = this.produitRepository.getOne(id);
 		System.out.println("----->" + produit.getNom());
 		// System.out.println("parfait" + id);
-		return "/clientPackage/detailClient.xhtml?faces-redirect=true";
+		return "/produit/detailProduit.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
@@ -106,5 +113,45 @@ public class ProduitController {
 	public void setListeProduit(List<Produit> listeProduit) {
 		this.listeProduit = listeProduit;
 	}
+
+//	public UploadedFile getFile() {
+//		return file;
+//	}
+//
+//	public void setFile(UploadedFile file) {
+//		this.file = file;
+//	}
+//
+//	public void upload() {
+//		if (file != null) {
+//			System.out.println("il y a un resultat ");
+//		} else {
+//			System.out.println("j'ai rien recu ");
+//		}
+//	}
+
+//	public Part getFile2() {
+//		return file2;
+//	}
+//
+//	public void setFile2(Part file2) {
+//		this.file2 = file2;
+//	}
+//
+//	public void upload2() {
+//		if (this.file2 != null) {
+//			System.out.println("il y a un resultat ");
+//		} else {
+//			System.out.println("j'ai rien recu ");
+//		}
+////	    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+////
+////	    try (InputStream input = file.getInputStream()) {
+////	        Files.copy(input, new File(uploads, fileName).toPath());
+////	    }
+////	    catch (IOException e) {
+////	        // Show faces message?
+////	    }
+//	}
 
 }

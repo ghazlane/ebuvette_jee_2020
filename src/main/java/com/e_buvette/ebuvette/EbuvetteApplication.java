@@ -36,4 +36,16 @@ public class EbuvetteApplication {
 		return rwFilter;
 	}
 
+//	@Bean
+//	public ServletContextInitializer initializer() {
+//		return new ServletContextInitializer() {
+//			@Override
+//			public void onStartup(ServletContext servletContext) throws ServletException {
+//				servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", "true");
+//				servletContext.setInitParameter("com.sun.faces.expressionFactory", "com.sun.el.ExpressionFactoryImpl");
+//				servletContext.setInitParameter("primefaces.UPLOADER", "auto");
+//			}
+//		};
+//	}
+
 }

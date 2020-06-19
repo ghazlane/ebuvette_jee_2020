@@ -10,10 +10,10 @@
 		<h1>Detail d'un client</h1>
 		<h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Nom : " />
-			<h:outputText value="#{clientController.client.nom}"
+			<h:outputText value="#{produitController.produit.prixUnitaire}"
 				style="font-weight: bold" />
 		</h:panelGrid>
-		<h:panelGrid columns="2" cellpadding="5">
+		<!-- <h:panelGrid columns="2" cellpadding="5">
 			<h:outputText value="Prénom : " />
 			<h:outputText value="#{clientController.client.prenom}"
 				style="font-weight: bold" />
@@ -42,7 +42,7 @@
 			<h:outputText value="adresse : " />
 			<h:outputText value="#{clientController.client.adresse.adresse}"
 				style="font-weight: bold" />
-		</h:panelGrid>
+		</h:panelGrid> -->
 	</ui:define>
 </ui:composition>
 
