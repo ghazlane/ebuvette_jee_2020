@@ -78,6 +78,15 @@ public class ProduitController {
 		return "/produit/listProduit.xhtml?faces-redirect=true";
 	}
 
+	@Transactional
+	public String listProduitForClient() {
+		this.listeProduit = this.produitRepository.findAll();
+//		for (Client client : listeClient) {
+//			System.out.println("----------->" + client.getNom());
+//		}
+		return "/clientPackage/listProduitClient.xhtml?faces-redirect=true";
+	}
+
 	public String detailsProduit(int id) {
 		this.produit = this.produitRepository.getOne(id);
 		System.out.println("----->" + produit.getNom());
