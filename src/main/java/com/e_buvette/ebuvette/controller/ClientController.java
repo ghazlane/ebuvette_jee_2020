@@ -40,7 +40,7 @@ public class ClientController {
 	@RequestAction
 	@IgnorePostback
 	public String home() {
-		return "/client.xhtml?faces-redirect=true";
+		return "/clientPackage/accueilClient.xhtml?faces-redirect=true";
 	}
 
 	public String formulaireInscription() {

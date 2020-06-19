@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templateClient.xhtml">
+
+	<ui:define name="content">
+	
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" /> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="../resources/accueil/css/linearicons.css" />
+			<link rel="stylesheet" href="../resources/accueil/css/font-awesome.min.css" />
+			<link rel="stylesheet" href="../resources/accueil/css/bootstrap.css" />
+			<link rel="stylesheet" href="../resources/accueil/css/magnific-popup.css" />
+			<link rel="stylesheet" href="../resources/accueil/css/nice-select.css" />					
+			<link rel="stylesheet" href="../resources/accueil/css/animate.min.css" />
+			<link rel="stylesheet" href="../resources/accueil/css/owl.carousel.css" />
+			<link rel="stylesheet" href="../resources/accueil/css/main.css" />
+			
+			
+		<section class="banner-area relative" id="home">
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-start">
+						<div class="banner-content col-lg-8 col-md-12">
+							<h4 class="text-white text-uppercase">LARGE CHOIX, gain de temps</h4>
+							<h1>
+								Découvrez et réservez vos repas				
+							</h1>
+							
+							<!-- <a href="/inscription.jsf" class="primary-btn header-btn text-uppercase">S'inscrire</a> -->
+						</div>												
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+			
+			<!-- Start features Area -->
+			<section class="features-area pt-100" id="feature">
+				<div class="container">
+					<div class="feature-section">
+						<div class="row">
+							<div class="single-feature col-lg-3 col-md-6">
+								<img src="../resources/accueil/img/f1.png" alt="" />
+								<h4 class="pt-20 pb-20">Petit déjeuner rafraîchissant</h4>
+							</div>
+							<div class="single-feature col-lg-3 col-md-6">
+								<img src="../resources/accueil/img/f2.png" alt="" />
+								<h4 class="pt-20 pb-20">Super déjeuner</h4>
+							</div>
+							<div class="single-feature col-lg-3 col-md-6">
+								<img src="../resources/accueil/img/f3.png" alt="" />
+								<h4 class="pt-20 pb-20">Dîner apaisant</h4>
+							</div>
+							<div class="single-feature col-lg-3 col-md-6">
+								<img src="../resources/accueil/img/f4.png" alt="" />
+								<h4 class="pt-20 pb-20">Gain de temps</h4>
+							</div>														
+						</div>											
+					</div>
+				</div>	
+			</section>
+			<!-- End features Area -->
+			
+			<!-- Start top-dish Area -->
+			<section class="top-dish-area section-gap" id="dish">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Nos top magasins et restaurants</h1>
+								<p>Découvrez les magasins et les restaurants en demande et faites-nous réserver ce que vous voulez sur demande.</p>
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="single-dish col-lg-4">
+							<div class="thumb">
+								<img class="img-fluid"  src="../resources/accueil/img/d1.png" alt="" />
+							</div>
+							<h4 class="text-uppercase pt-20 pb-20">McDonald's</h4>
+							
+						</div>
+						<div class="single-dish col-lg-4">
+							<div class="thumb">
+								<img class="img-fluid"  src="../resources/accueil/img/d2.png" alt="" />
+							</div>
+							<h4 class="text-uppercase pt-20 pb-20">Tacos De Lyon</h4>
+							
+						</div>
+						<div class="single-dish col-lg-4">
+							<div class="thumb">
+								<img class="img-fluid"  src="../resources/accueil/img/d3.jpg" alt="" />
+							</div>
+							<h4 class="text-uppercase pt-20 pb-20">Tacos de Nice</h4>
+						
+						</div>												
+					</div>
+				</div>	
+			</section>
+			<!-- End top-dish Area -->
+
+
+			
+			<!-- start footer Area -->		
+			<footer class="footer-area section-gap" id="contact">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h4 class="text-white">À propos de nous</h4>
+								<p>
+									E-buvette est une application qui va vous aider à réserver vos repas en ligne.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h4 class="text-white">Contactez-nous</h4>
+								<p class="number">
+									012-6532-568-9746 <br/>
+									012-6532-569-9748
+								</p>
+							</div>
+						</div>						
+						<div class="col-lg-5  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h4 class="text-white">Newsletter</h4>
+								<p>Vous pouvez nous faire confiance. nous n'envoyons que des offres, pas un seul spam.</p>
+								<div class="d-flex flex-row" id="mc_embed_signup">
+
+
+									  <form class="navbar-form" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
+									    <div class="input-group add-on">
+									      	<input class="form-control" name="EMAIL" placeholder="Adresse Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required="" type="email" />
+											<div style="position: absolute; left: -5000px;">
+												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text"/>
+											</div>
+									      <div class="input-group-btn">
+									        <button class="genric-btn"><span class="lnr lnr-arrow-right"></span></button>
+									      </div>
+									    </div>
+									      <div class="info mt-20"></div>									    
+									  </form>
+
+								</div>
+							</div>
+						</div>						
+					</div>
+					<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          
+						<div class="footer-social d-flex align-items-center">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>	
+			
+			
+			<script src="../resources/accueil/js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="../resources/accueil/js/vendor/bootstrap.min.js"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="../resources/accueil/js/easing.min.js"></script>			
+			<script src="../resources/accueil/js/hoverIntent.js"></script>
+			<script src="../resources/accueil/js/superfish.min.js"></script>	
+			<script src="../resources/accueil/js/jquery.ajaxchimp.min.js"></script>
+			<script src="../resources/accueil/js/jquery.magnific-popup.min.js"></script>	
+			<script src="../resources/accueil/js/owl.carousel.min.js"></script>			
+			<script src="../resources/accueil/js/jquery.sticky.js"></script>
+			<script src="../resources/accueil/js/jquery.nice-select.min.js"></script>			
+			<script src="../resources/accueil/js/parallax.min.js"></script>	
+			<script src="../resources/accueil/js/mail-script.js"></script>	
+			<script src="../resources/accueil/js/main.js"></script>
+
+	</ui:define>
+
+</ui:composition>
