@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="../templateClient.xhtml">
+	<ui:define name="content">
+		<!-- Google Fonts -->
+
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+			rel="stylesheet" />
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<h:outputStylesheet name="primeicons/primeicons.css"
+			library="primefaces" />
+		<center>
+			<h1 style="margin-top: 30px; color: green;">
+				<strong> <br />
+					<center>Liste de mes commandes</center>
+				</strong>
+			</h1>
+		</center>
+		<br />
+		<br />
+		<br />
+		<center>
+		<p:repeat value="#{commandeController.listeCommande}"
+						var="commande">
+			<p:panel id="pnl" header="Mon panier N° #{commande.id}"
+				style="margin-bottom:10px; width : 70%;">
+				<p:messages id="messages" />
+				<h:panelGrid columns="1" cellpadding="5" style="font-size : large; ">					
+
+				</h:panelGrid>
+				<br />
+				<br />
+				<h:outputText value="Temp estimé de préparation : 20 Min"
+					style="float : center ; color : orange ; " />
+				<br />
+				<br />
+				<strong> <h:outputText
+						value="Montant total à payer : #{commande.prixTotal} DH"
+						style="float : left ; color : green ; font-size : larger ; " />
+				</strong>
+				<br />
+				<br />
+			</p:panel>
+			<br/>
+			</p:repeat>
+		</center>
+	</ui:define>
+</ui:composition>

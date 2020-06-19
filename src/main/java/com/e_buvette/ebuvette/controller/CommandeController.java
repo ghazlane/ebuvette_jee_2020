@@ -45,6 +45,8 @@ public class CommandeController {
 	private Commande commande;
 	private List<LigneCommande> ligneCommandes;
 
+	private List<Commande> listeCommande;
+
 	private float prixTotal;
 //	private UploadedFile file;
 
@@ -61,6 +63,7 @@ public class CommandeController {
 		this.commande = new Commande();
 		this.ligneCommandes = new ArrayList<LigneCommande>();
 		this.prixTotal = 0;
+		this.listeCommande = new ArrayList<>();
 	}
 
 	public Commande getCommande() {
@@ -106,6 +109,7 @@ public class CommandeController {
 		this.commande.setDateHeureCommande("20");
 		this.commande.setStatutCommande("En attente");
 		this.commande.setvendeur(this.vendeurRepository.getOne(21));
+		this.commande.setPrixTotal(prixTotal);
 		this.commandeRepository.save(this.commande);
 		for (LigneCommande ligneCommande : ligneCommandes) {
 			ligneCommande.setIdCommande(commande);
@@ -114,6 +118,23 @@ public class CommandeController {
 		}
 
 		return "/clientPackage/panierBienAjoute.xhtml?faces-redirect=true";
+	}
+
+	public String myCommandes() {
+		System.out.println("ca marche");
+		this.listeCommande = this.commandeRepository.findByClientId(this.clientRepository.getOne(11).getId());
+		for (Commande ligneCommande : listeCommande) {
+			System.out.println("----------------------> ");
+		}
+		return "/clientPackage/mesCommandes.xhtml?faces-redirect=true";
+	}
+
+	public List<Commande> getListeCommande() {
+		return listeCommande;
+	}
+
+	public void setListeCommande(List<Commande> listeCommande) {
+		this.listeCommande = listeCommande;
 	}
 
 }
