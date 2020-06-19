@@ -5,6 +5,13 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="../templateClient.xhtml">
 	<ui:define name="content">
+	  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet" />
+		
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+		<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
 		<center>
 			<h1 style="margin-top: 30px; color: green;">
 				<strong> <br />
@@ -29,18 +36,24 @@
 						</center>
 						<br />
 						<center>
-						<h:panelGrid columns="2" cellpadding="5">
-							<h:outputText value="Nom produit :" />
+						<h:panelGrid columns="3" cellpadding="5">
+						
+							<i class="fas fa-store" style="margin-right: 10px;"></i> 
+							<h:outputText value="  Nom produit :  " />
 							<h:outputText value="#{produit.nom}" style="font-weight: bold" />
 
-							<h:outputText value="Prix unitaire : " />
+<i class="fas fa-dollar-sign" style="margin-right: 10px;"></i>
+							<h:outputText value="  Prix unitaire :  " />
 							<h:outputText value="#{produit.prixUnitaire} DH"
 								style="font-weight: bold" />
 
-							<h:outputText value="Temp de préparation" />
-							<h:outputText value="#{produit.tempPreparation} min"
+<i class="fas fa-stopwatch" style="margin-right: 10px;"></i>
+							<h:outputText value="  Temp de préparation :  " />
+							<h:outputText value=" #{produit.tempPreparation} min"
 								style="font-weight: bold" />
-							<h:outputText value="Taille" />
+								
+								<i class="far fa-window-maximize"></i>
+							<h:outputText value="  Taille : " />
 							<h:outputText value="#{produit.size}" style="font-weight: bold" />
 						</h:panelGrid>
 						</center>
@@ -65,18 +78,24 @@
 					</p:outputPanel> -->
 
 					<p:outputPanel>
-						<p:commandButton value="Détail" id="withIcon"
-							action="#{produitController.detailsProduit(produit.id)}"
-							update="growl" style="margin-right:20px;" icon="pi pi-save" />
-
-						<p:linkButton value="" style="margin-right:20px;">
-							<f:param name="id" value="#{produit.id}" />
-						</p:linkButton>
-						<br />
-						<br />
-						<br />
-
-
+					
+						<center style="color  : green ; margin-top : 20 px ; ">
+						<i class="fas fa-clock"></i> 
+							<h:outputText value="  De #{produit.vendeur.horaireOuverture} à #{produit.vendeur.horaireFermeture}"
+								style="font-weight: bold; color : green;" />
+						</center>
+						<center>
+						<p:commandButton value="Détail" id="withIcon1"
+							action="#{produitController.detailsProduit}"
+							update="growl" style="margin-top:10px;" icon="fa-plus-square" />
+						</center>
+						<br/>
+						<center>
+						
+						<p:commandButton value="Ajouter à mon panier" id="withIcon2"
+							action="#{produitController.detailsProduit}"
+							update="growl" style="margin-top : 10px;" icon="fa fa-fw fa-cart-arrow-down" />
+						</center>
 					</p:outputPanel>
 				</h:panelGrid>
 				<hr />
