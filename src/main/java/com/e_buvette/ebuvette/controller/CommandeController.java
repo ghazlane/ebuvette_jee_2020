@@ -101,7 +101,7 @@ public class CommandeController {
 		this.prixTotal = prixTotal;
 	}
 
-	public void saveCommande() {
+	public String saveCommande() {
 		this.commande.setclient(this.clientRepository.getOne(11));
 		this.commande.setDateHeureCommande("20");
 		this.commande.setStatutCommande("En attente");
@@ -112,50 +112,8 @@ public class CommandeController {
 			ligneCommande.setNbProduit(1);
 			this.ligneCommandeRepository.save(ligneCommande);
 		}
+
+		return "/clientPackage/panierBienAjoute.xhtml?faces-redirect=true";
 	}
-
-	// public void ajouterPanier() {
-//		this.ligneCommande.add(new Li)
-//	}
-
-//	public UploadedFile getFile() {
-//		return file;
-//	}
-//
-//	public void setFile(UploadedFile file) {
-//		this.file = file;
-//	}
-//
-//	public void upload() {
-//		if (file != null) {
-//			System.out.println("il y a un resultat ");
-//		} else {
-//			System.out.println("j'ai rien recu ");
-//		}
-//	}
-
-//	public Part getFile2() {
-//		return file2;
-//	}
-//
-//	public void setFile2(Part file2) {
-//		this.file2 = file2;
-//	}
-//
-//	public void upload2() {
-//		if (this.file2 != null) {
-//			System.out.println("il y a un resultat ");
-//		} else {
-//			System.out.println("j'ai rien recu ");
-//		}
-////	    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-////
-////	    try (InputStream input = file.getInputStream()) {
-////	        Files.copy(input, new File(uploads, fileName).toPath());
-////	    }
-////	    catch (IOException e) {
-////	        // Show faces message?
-////	    }
-//	}
 
 }
