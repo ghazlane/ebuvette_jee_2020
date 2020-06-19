@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.e_buvette.ebuvette.models.LigneCommande;
 import com.e_buvette.ebuvette.models.Produit;
 import com.e_buvette.ebuvette.repository.ProduitRepository;
 import com.e_buvette.ebuvette.repository.VendeurRepository;
@@ -33,6 +34,7 @@ public class ProduitController {
 
 	private Produit produit;
 	private List<Produit> listeProduit;
+	private List<LigneCommande> ligneCommande;
 
 //	private UploadedFile file;
 
@@ -40,9 +42,9 @@ public class ProduitController {
 
 	public ProduitController() {
 		this.produit = new Produit();
-
 //		this.client.setAdresse(new Adresse());
 		this.listeProduit = new ArrayList<>();
+		this.ligneCommande = new ArrayList<>();
 	}
 
 	@Deferred
@@ -122,6 +124,10 @@ public class ProduitController {
 	public void setListeProduit(List<Produit> listeProduit) {
 		this.listeProduit = listeProduit;
 	}
+
+//	public void ajouterPanier() {
+//		this.ligneCommande.add(new Li)
+//	}
 
 //	public UploadedFile getFile() {
 //		return file;

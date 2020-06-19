@@ -38,6 +38,10 @@ public class Commande implements Serializable {
 //	@OneToMany(mappedBy = "ligneCommande")
 //	private List<LigneCommande> listeLigneCommande;
 
+	public Commande() {
+		super();
+	}
+
 	public Commande(int id, Client client, Vendeur vendeur, String statutCommande, String dateHeureCommande,
 			String dateHeureLivraison) {
 		super();
