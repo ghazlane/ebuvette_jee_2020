@@ -2,7 +2,8 @@ package com.e_buvette.ebuvette.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.faces.context.FacesContext;
+import javax.faces.application.FacesMessage;
 import javax.transaction.Transactional;
 
 import org.ocpsoft.rewrite.annotation.Join;
@@ -55,7 +56,8 @@ public class VendeurController {
 		vendeurRepository.save(vendeur);
 		vendeurRepository.flush();
 		// client = new Client();
-		return "/vendeur/messageSucces.xhtml?faces-redirect=true";
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Votre opération a été Bien effectué."));
+		return "../seconnecter.xhtml?faces-redirect=true";
 	}
 
 	public String listVendeur() {

@@ -5,85 +5,138 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="../templateAdministrateur.xhtml">
+<ui:composition template="../templateInscription.xhtml">
 
 	<ui:define name="content">
-		<h1>Formulaire Inscription Vendeur</h1>
+		<div class="card-body">
+			<h2 class="title">
+				Inscription Vendeur
+				</h2>
 
-		<h:form>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Nom : " for="nom" />
-				<p:inputText id="nom" required="true"
-					value="#{vendeurController.vendeur.nom}" />
-			</h:panelGrid>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Prénom : " for="prenom" />
-				<p:inputText id="prenom" required="true"
-					value="#{vendeurController.vendeur.prenom}" />
-			</h:panelGrid>
-
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Email : " for="email" />
-				<p:inputText id="email" required="true"
-					value="#{vendeurController.vendeur.email}" />
-			</h:panelGrid>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Nom Magasin : " for="nomMagasin" />
-				<p:inputText id="nomMagasin" required="true"
-					value="#{vendeurController.vendeur.nomMagasin}" />
-			</h:panelGrid>
-
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Numéro téléphone : " for="numeroTelephone" />
-				<p:inputText id="numeroTelephone" required="true"
-					value="#{vendeurController.vendeur.numTelephone}" />
-			</h:panelGrid>
-
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Mot de passe : " for="password " />
-				<p:inputText id="password" required="true"
-					value="#{vendeurController.vendeur.password}" />
-			</h:panelGrid>
-
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Confirmer mot de passe : "
-					for="passwordvalidation " />
-				<p:inputText id="passwordvalidation" required="true" />
-			</h:panelGrid>
-			<h:panelGrid columns="2" cellpadding="10">
-				<p:outputLabel value="Adresse : " for="adresse" />
-				<p:inputTextarea id="adresse" rows="3"
-					value="#{vendeurController.vendeur.adresseMagasin.adresse}" />
-			</h:panelGrid>
-			<h:panelGrid columns="4" cellpadding="10">
-				<p:outputLabel value="Ville : " for="ville " />
-				<p:inputText id="ville"
-					value="#{vendeurController.vendeur.adresseMagasin.ville}" />
-				<p:outputLabel value="Code postal : " for="codepostal " />
-				<p:inputText id="codepostal"
-					value="#{vendeurController.vendeur.adresseMagasin.codePostal}" />
-			</h:panelGrid>
-
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Service Magasin : " for="serviceMagasin" />
-				<p:inputText id="serviceMagasin" required="true"
-					value="#{vendeurController.vendeur.serviceMagasin}" />
-			</h:panelGrid>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Horaire ouverture : " for="horaireOuverture" />
-				<p:inputText id="horaireOuverture" required="true"
-					value="#{vendeurController.vendeur.horaireOuverture}" />
-			</h:panelGrid>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Horaire fermeture : " for="horaireFermeture" />
-				<p:inputText id="horaireFermeture" required="true"
-					value="#{vendeurController.vendeur.horaireFermeture}" />
-			</h:panelGrid>
-
-			<h:commandButton value="Inscription"
-				action="#{vendeurController.saveVendeur}" styleClass="sansLabel" />
-		</h:form>
-
+				<h:form id="id_inscription_formulaire">
+				<p:messages id="id_inscription_messages" />
+				
+					<div class="row row-space">
+						<div class="col-4">
+							<div class="input-group">
+								<p:inputText class="input--style-2 input" placeholder="Nom"
+									validatorMessage="Le nom ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
+									value="#{vendeurController.vendeur.nom}" required="true">
+									<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
+								</p:inputText>
+							</div>
+						</div>
+						<p:spacer width="20" />
+						<div class="col-4">
+							<div class="input-group">
+								<p:inputText class="input--style-2 input" placeholder="Prénom"
+									validatorMessage="Le prénom ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
+									value="#{vendeurController.vendeur.prenom}" required="true">
+									<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
+								</p:inputText>
+							</div>
+						</div>
+					</div>
+					<div class="input-group">
+						<p:inputText class="input--style-2 input" placeholder="Email"
+							validatorMessage="Votre adresse mail est invalide"
+							value="#{vendeurController.vendeur.email}" required="true">
+							<f:validateRegex
+								pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+						</p:inputText>
+					</div>
+					<div class="input-group">
+						<p:password class="input--style-2 input"
+							placeholder="Mot de passe"
+							value="#{vendeurController.vendeur.password}" style=""
+							required="true" feedback="true" />
+					</div>
+					<div class="input-group">
+						<p:password class="input--style-2 input"
+							placeholder="Confirmation mot de passe" value="" style=""
+							required="true" feedback="true" />
+					</div>
+					<div class="input-group">
+						<p:inputText class="input--style-2 input" placeholder="Téléphone"
+							validatorMessage="Votre numéro de téléphone est invalide"
+							value="#{vendeurController.vendeur.numTelephone}" required="true">
+							<f:validateRegex pattern="^[0-9]{1,20}$" />
+						</p:inputText>
+					</div>
+					<div class="input-group">
+						<p:inputText class="input--style-2 input"
+							placeholder="Nom magazin"
+							validatorMessage="Nom magazin est invalide"
+							value="#{vendeurController.vendeur.nomMagasin}" required="true">
+							<f:validateRegex pattern="^[a-zA-Z0-9 ]{1,100}$" />
+						</p:inputText>
+					</div>
+					<div class="input-group">
+						<p:inputText class="input--style-2 input" placeholder="Adresse"
+							validatorMessage="Votre adresse est invalide"
+							value="#{vendeurController.vendeur.adresseMagasin.adresse}"
+							required="true">
+							<f:validateRegex pattern="^[a-zA-Z0-9 ]{1,100}$" />
+						</p:inputText>
+					</div>
+					<div class="row row-space">
+						<div class="col-4">
+							<div class="input-group">
+								<p:inputText class="input--style-2 input" placeholder="Ville"
+									validatorMessage="La ville ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
+									value="#{vendeurController.vendeur.adresseMagasin.ville}"
+									required="true">
+									<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
+								</p:inputText>
+							</div>
+						</div>
+						<p:spacer width="20" />
+						<div class="col-4">
+							<div class="input-group">
+								<p:inputText class="input--style-2 input"
+									placeholder="Code Postal"
+									validatorMessage="Le code postal ne doit contenir que des chiffres et ne doit pas dépasser 10 caractères."
+									value="#{vendeurController.vendeur.adresseMagasin.codePostal}"
+									required="true">
+									<f:validateRegex pattern="^[0-9]{1,10}$" />
+								</p:inputText>
+							</div>
+						</div>
+					</div>
+					<div class="row row-space">
+						<div class="col-4">
+							<div class="input-group">
+								<p:inputText class="input--style-2 input"
+									placeholder="Horaire d'ouverture"
+									validatorMessage="L'Horaire d'ouverture ne doit contenir que des chiffres et ne doit pas dépasser 10 caractères."
+									value="#{vendeurController.vendeur.horaireOuverture}"
+									required="true">
+									<f:validateRegex pattern="^[0-9:]{1,10}$" />
+								</p:inputText>
+							</div>
+						</div>
+						<p:spacer width="20" />
+						<div class="col-4">
+							<div class="input-group">
+								<p:inputText class="input--style-2 input"
+									placeholder="Horaire de fermeture"
+									validatorMessage="L'Horaire de fermeture ne doit contenir que des chiffres et ne doit pas dépasser 10 caractères."
+									value="#{vendeurController.vendeur.horaireOuverture}"
+									required="true">
+									<f:validateRegex pattern="^[0-9:]{1,10}$" />
+								</p:inputText>
+							</div>
+						</div>
+					</div>
+					<div class="p-t-30">
+					<p:commandButton class="btn btn--radius btn--green " value="S'inscrire"
+										update="id_inscription_formulaire" action="#{vendeurController.saveVendeur}"
+										 />
+				</div>
+					
+				</h:form>
+		</div>
+		
 	</ui:define>
 </ui:composition>
 

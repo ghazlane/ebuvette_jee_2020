@@ -5,68 +5,92 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="../templateAdministrateur.xhtml">
+<ui:composition template="../templateVendeur.xhtml">
 
 	<ui:define name="content">
-		<h1>Formulaire Ajout Nouveau Produit</h1>
-		
-				<h:form>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Titre : " for="nom" />
-				<p:inputText id="nom" required="true"
-					value="#{produitController.produit.nom}" />
-			</h:panelGrid>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Prix Unitaire en DH: " for="prix" />
-				<p:inputText id="prix" required="true"
-					value="#{produitController.produit.prixUnitaire}" />
-			</h:panelGrid>
+		<div class="card card-2">
+			<div class="card-heading"></div>
+			<div id="layout-portlets-cover">
+				<div class="card-body">
+					<h2 class="title">Nouveau Produit</h2>
+
+					<h:form id="id_nouveau_produit_formulaire">
+						<p:messages id="id_messages" />
+						<div class="input-group">
+							<p:inputText class="input--style-2 input" placeholder="Titre"
+								validatorMessage="Le titre ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
+								value="#{produitController.produit.nom}" required="true">
+								<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
+							</p:inputText>
+						</div>
+						<div class="input-group">
+							<p:outputLabel style="color: #666;font-size: 14px;font-weight: 500;"
+								value="Prix Unitaire en DH :   " />
+							<p:inputText class="input--style-2 input"
+								placeholder="Prix Unitaire en DH"
+								validatorMessage="Le prix ne doit contenir que des chiffres et ne doit pas dépasser 10 caractères."
+								value="#{produitController.produit.prixUnitaire}"
+								required="true">
+							</p:inputText>
+						</div>
 
 
+						<h:panelGrid columns="2" style="margin-bottom:10px"
+							cellpadding="5">
 
-			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+							<p:outputLabel style="color: #666;font-size: 14px;font-weight: 500;"
+								value="Produit disponible :  " />
+							<p:selectOneButton value="#{produitController.produit.stock}">
+								<f:selectItem itemLabel="Oui" itemValue="1" />
+								<f:selectItem itemLabel="Non" itemValue="0" />
+							</p:selectOneButton>
+						</h:panelGrid>
 
-				<p:outputLabel value="Produit dipsonible  : " />
-				<p:selectOneButton value="#{produitController.produit.stock}">
-					<f:selectItem itemLabel="Oui" itemValue="1" />
-					<f:selectItem itemLabel="Non" itemValue="0" />
-				</p:selectOneButton>
-			</h:panelGrid>
+						<div class="input-group">
+							<p:inputText class="input--style-2 input"
+								placeholder="Temp de préparation em Min"
+								validatorMessage="Le champs ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
+								value="#{produitController.produit.tempPreparation}"
+								required="true">
+								<f:validateRegex pattern="^[0-9a-zA-Z ]{1,30}$" />
+							</p:inputText>
+						</div>
 
-
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Temp de préparation em Min: " for="temp" />
-				<p:inputText id="temp" required="true"
-					value="#{produitController.produit.tempPreparation}" />
-			</h:panelGrid>
-
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Image Produit : " />
-
-				<!-- <p:inputText id="image" required="true"
+						<h:panelGrid columns="2" cellpadding="5">
+							<p:outputLabel style="color: #666;font-size: 14px;font-weight: 500;" value="Image Produit : " />
+							<p:fileUpload value="" mode="simple" skinSimple="true"/>
+   
+							<!-- <p:inputText id="image" required="true"
 					value="#{produitController.produit.imageProduit}" /> -->
-			</h:panelGrid>
+						</h:panelGrid>
 
-			<h:panelGrid columns="2" cellpadding="10">
-				<p:outputLabel value="Taille : " for="size" />
-				
-				
-				<p:selectOneButton id="size" value="#{produitController.produit.size}">
-					<f:selectItem itemLabel="Normal" itemValue="Normal" />
-					<f:selectItem itemLabel="X" itemValue="X" />
-					<f:selectItem itemLabel="XL" itemValue="XL" />
-					<f:selectItem itemLabel="XXL" itemValue="XXL" />
-				</p:selectOneButton>
-				
-			</h:panelGrid>
-			<h:commandButton value="Ajouter" action="#{produitController.saveProduit}"
-				styleClass="sansLabel" />
-		</h:form>
-		
-		
-		
+						<h:panelGrid columns="2" cellpadding="10">
+							<p:outputLabel
+								style="color: #666;font-size: 14px;font-weight: 500;"
+								value="Taille : " for="size" />
 
 
+							<p:selectOneButton id="size"
+								value="#{produitController.produit.size}">
+								<f:selectItem itemLabel="Normal" itemValue="Normal" />
+								<f:selectItem itemLabel="X" itemValue="X" />
+								<f:selectItem itemLabel="XL" itemValue="XL" />
+								<f:selectItem itemLabel="XXL" itemValue="XXL" />
+							</p:selectOneButton>
+
+						</h:panelGrid>
+						<div class="p-t-30">
+							<h:commandButton value="Ajouter"
+								update="id_nouveau_produit_formulaire"
+								action="#{produitController.saveProduit}" styleClass="sansLabel" />
+						</div>
+					</h:form>
+
+
+				</div>
+			</div>
+
+		</div>
 
 	</ui:define>
 </ui:composition>

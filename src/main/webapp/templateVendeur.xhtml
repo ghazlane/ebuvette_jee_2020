@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Inscription</title>
+	<title>E-buvette</title>
 	<f:facet name="first">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -25,7 +25,40 @@
 
 	<!-- Main JS-->
 	<h:outputScript name="js/global.js" library="inscription"></h:outputScript>
-	<style>
+
+</h:head>
+
+<h:body>
+	<ui:include src="navbarVendeur.xhtml" />
+
+	<div class="page-wrapper p-t-20 p-b-100 font-robo">
+		<div class="wrapper wrapper--w960">
+			<ui:insert name="content">
+               			 Template
+            </ui:insert>
+		</div>
+	</div>
+
+
+
+	<!-- Icons font CSS-->
+	<h:outputStylesheet name="css/material-design-iconic-font.min.css"
+		library="inscription" />
+	<h:outputStylesheet name="css/font-awesome.min.css"
+		library="inscription" />
+	<!-- Font special for pages-->
+	<h:outputStylesheet
+		name="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+		library="inscription" />
+
+	<!-- Vendor CSS-->
+	<h:outputStylesheet name="css/select2.min.css" library="inscription" />
+	<h:outputStylesheet name="css/daterangepicker.css"
+		library="inscription" />
+
+	<!-- Main CSS-->
+	<h:outputStylesheet name="css/main.css" />
+		<style>
 .input {
 	outline: none;
 	margin: 0;
@@ -79,73 +112,33 @@
 	text-decoration: none;
 }
 
-.dropdown-content a:hover {
-	background-color: #f1f1f1;
-}
+.dropdown-content a:hover {background-color: #f1f1f1;}
 
 .dropdown:hover .dropdown-content {
-	display: block;
+  display: block;
 }
-
 .dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f9f9f9;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 .dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	text-align: left;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+li.dropdown {
+  display: inline-block;
 }
 
-li.dropdown {
-	display: inline-block;
-}
 </style>
 
-	<h:body>
-		<ui:include src="navbarInscription.xhtml" />
+</h:body>
 
-		<div class="page-wrapper bg-red p-t-20 p-b-100 font-robo">
-			<div class="wrapper wrapper--w960">
-				<div class="card card-2">
-					<div class="card-heading"></div>
-					<div id="layout-portlets-cover">
-						<ui:insert name="content">
-               			 Template
-            		</ui:insert>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-
-
-		<!-- Icons font CSS-->
-		<h:outputStylesheet name="css/material-design-iconic-font.min.css"
-			library="inscription" />
-		<h:outputStylesheet name="css/font-awesome.min.css"
-			library="inscription" />
-		<!-- Font special for pages-->
-		<h:outputStylesheet
-			name="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
-			library="inscription" />
-
-		<!-- Vendor CSS-->
-		<h:outputStylesheet name="css/select2.min.css" library="inscription" />
-		<h:outputStylesheet name="css/daterangepicker.css"
-			library="inscription" />
-
-		<!-- Main CSS-->
-		<h:outputStylesheet name="css/main.css" />
-
-
-	</h:body>
 </html>
