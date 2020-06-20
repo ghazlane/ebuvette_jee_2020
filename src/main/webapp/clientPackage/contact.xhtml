@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="../templateClient.xhtml">
+	<ui:define name="content">
+		<div class="page-wrapper bg-white p-t-20 p-b-100 font-robo">
+			<div class="wrapper wrapper--w960">
+				<div class="card card-2">
+					<div class="card-heading"></div>
+					<div id="layout-portlets-cover">
+						<div class="card-body" style="background-color: antiquewhite">
+							<h2 class="title">Contactez-nous</h2>
+							<h:form id="id_inscription_formulaire">
+								<br />
+								<br />
+								<div class="input-group">
+									<p:inputText value="#{contactController.contact.objet}"
+										class="input--style-2 input" placeholder="Objet"
+										validatorMessage="la date est invalide" required="true">
+									</p:inputText>
+								</div>
+								<div class="input-group">
+									<p:inputTextarea value="#{contactController.contact.message}"
+										class="input--style-2 input" placeholder="Message"
+										validatorMessage="message est obkigatoiree" required="true">
+									</p:inputTextarea>
+								</div>
+								<div class="p-t-30">
+									<p:commandButton class="btn btn--radius btn--green "
+										value="Valier le message" update="id_inscription_formulaire"
+										action="#{contactController.saveContactClient}" />
+								</div>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
