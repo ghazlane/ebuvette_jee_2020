@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="../templateClient.xhtml">
+	<ui:define name="content">
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+			rel="stylesheet" />
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<h:outputStylesheet name="primeicons/primeicons.css"
+			library="primefaces" />
+		<center>
+			<h1 style="margin-top: 30px; color: green;">
+				<strong> <br />
+					<center>Liste de mes Reservations</center>
+				</strong>
+			</h1>
+			<br/><br/><br/>
+			<p:dataTable var="reservation" value="#{reservationController.listeReservation}">
+			<p:column headerText="Id">
+				<h:outputText value="#{reservation.id}" />
+			</p:column>
+
+			<p:column headerText="Date et heure">
+				<h:outputText value="#{reservation.dateReservation} #{reservation.heureReservation}" />
+			</p:column>
+
+			<p:column headerText="Nombre Place ">
+				<h:outputText value="#{reservation.nombrePlace}" />
+			</p:column>
+
+			<p:column headerText="Statut ">
+				<h:outputText value="#{reservations.status}" />
+			</p:column>
+		</p:dataTable>
+		
+		</center>
+	</ui:define>
+</ui:composition>

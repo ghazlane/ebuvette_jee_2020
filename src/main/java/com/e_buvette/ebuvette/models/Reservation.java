@@ -29,6 +29,7 @@ public class Reservation implements Serializable {
 	private String dateReservation;
 	private String heureReservation;
 	private int nombrePlace;
+	private String status;
 
 	public Reservation() {
 		super();
@@ -87,6 +88,14 @@ public class Reservation implements Serializable {
 
 	public void setHeureReservation(String heureReservation) {
 		this.heureReservation = heureReservation;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

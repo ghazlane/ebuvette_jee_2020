@@ -35,11 +35,13 @@ public class ReservationController {
 	private Reservation reservation;
 	private int idVendeur;
 	private List<Vendeur> listVendeur;
+	private List<Reservation> listeReservation;
 
 	public ReservationController() {
 		super();
 		this.reservation = new Reservation();
 		this.listVendeur = new ArrayList<>();
+		this.listeReservation = new ArrayList<>();
 		// this.listVendeur = this.vendeurRepository.findAll();
 	}
 
@@ -80,8 +82,22 @@ public class ReservationController {
 //		System.out.println("je suis la");
 		this.reservation.setClient(clientRepository.getOne(11));
 		this.reservation.setVendeur(vendeurRepository.getOne(this.idVendeur));
+		this.reservation.setStatus("En attente");
 		this.reservationRepository.save(reservation);
 		return "/clientPackage/panierBienAjoute.xhtml?faces-redirect=true";
+	}
+
+	public String listReservationClient() {
+		this.listeReservation = this.reservationRepository.findByClientId(11);
+		return "/clientPackage/listReservationClient.xhtml?faces-redirect=true";
+	}
+
+	public List<Reservation> getListeReservation() {
+		return listeReservation;
+	}
+
+	public void setListeReservation(List<Reservation> listeReservation) {
+		this.listeReservation = listeReservation;
 	}
 
 }
