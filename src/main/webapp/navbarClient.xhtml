@@ -29,7 +29,12 @@
 							<a href="#"
 								style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;">Table</a>
 						</div></li>
-					<li><a href="/inscription.jsf">Réserver une table</a></li>
+					<li>
+					<h:commandLink
+								style="color: white; padding: 12px 16px; text-decoration: none; display: block; text-align: left;"
+								action="#{reservationController.nouvelleReservation}" value="Réserver une table">
+							</h:commandLink>
+					</li>
 					<li class="menu-active"><a
 						href="/clientPackage/accueilClient.jsf">Chercher</a></li>
 					<li><a href="/inscription.jsf">Contact</a></li>
