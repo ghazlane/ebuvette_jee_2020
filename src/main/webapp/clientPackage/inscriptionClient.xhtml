@@ -1,67 +1,108 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
-
-<ui:composition template="../templateAdministrateur.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templateInscription.xhtml">
 
 	<ui:define name="content">
-		<h1>Formulaire Inscription Client</h1>
+		<div class="card-body">
+			<h2 class="title">Inscription Nouveau client</h2>
+			<h:form id="id_inscription_formulaire">
+				<div class="row row-space">
+					<div class="col-4">
+						<div class="input-group">
+							<p:inputText value="#{clientController.client.nom}"
+								class="input--style-2 input" placeholder="Nom"
+								validatorMessage="Le nom ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
+								required="true">
+								<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
+							</p:inputText>
+						</div>
+					</div>
+					<p:spacer width="20" />
+					<div class="col-4">
+						<div class="input-group">
+							<p:inputText value="#{clientController.client.prenom}"
+								class="input--style-2 input" placeholder="Prénom"
+								validatorMessage="Le prénom ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
+								required="true">
+								<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
+							</p:inputText>
+						</div>
+					</div>
+				</div>
 
-		<h:form>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Nom : " for="nom" />
-				<p:inputText id="nom" required="true"
-					value="#{clientController.client.nom}" />
-			</h:panelGrid>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Prénom : " for="prenom" />
-				<p:inputText id="prenom" required="true"
-					value="#{clientController.client.prenom}" />
-			</h:panelGrid>
+				<div class="input-group">
+					<p:inputText value="#{clientController.client.numeroTelephone}"
+						class="input--style-2 input" placeholder="Téléphone"
+						validatorMessage="Votre numéro de téléphone est invalide"
+						required="true">
+						<f:validateRegex pattern="^[0-9]{1,20}$" />
+					</p:inputText>
+				</div>
+				<div class="input-group">
+					<p:inputText class="input--style-2 input" placeholder="Email"
+						validatorMessage="Votre adresse mail est invalide"
+						value="#{clientController.client.email}" required="true">
+						<f:validateRegex
+							pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+					</p:inputText>
+				</div>
+				<div class="input-group">
+					<p:inputText value="#{clientController.client.adresse.adresse}"
+						class="input--style-2 input" placeholder="Adresse"
+						validatorMessage="Votre adresse est invalide" required="true">
+						<f:validateRegex pattern="^[a-zA-Z0-9]{1,100}$" />
+					</p:inputText>
+				</div>
+				<div class="row row-space">
+					<div class="col-4">
+						<div class="input-group">
+							<p:inputText value="#{clientController.client.adresse.ville}"
+								class="input--style-2 input" placeholder="Ville"
+								validatorMessage="Le Ville ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
+								required="true">
+								<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
+							</p:inputText>
+						</div>
+					</div>
+					<p:spacer width="20" />
+					<div class="col-4">
+						<div class="input-group">
+							<p:inputText
+								value="#{clientController.client.adresse.codePostal}"
+								class="input--style-2 input" placeholder="Code postal"
+								validatorMessage="Le code postal ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
+								required="true">
+								<f:validateRegex pattern="^[0-9]{1,30}$" />
+							</p:inputText>
+						</div>
+					</div>
+				</div>
 
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Email : " for="email" />
-				<p:inputText id="email" required="true"
-					value="#{clientController.client.email}" />
-			</h:panelGrid>
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Numéro téléphone : " for="numeroTelephone" />
-				<p:inputText id="numeroTelephone" required="true"
-					value="#{clientController.client.numeroTelephone}" />
-			</h:panelGrid>
+				<div class="input-group">
+					<p:password value="#{clientController.client.password}"
+						class="input--style-2 input" placeholder="Mot de passe" style=""
+						required="true" feedback="true" />
+				</div>
 
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Mot de passe : " for="password " />
-				<p:inputText id="password" required="true"
-					value="#{clientController.client.password}" />
-			</h:panelGrid>
+				<div class="input-group">
+					<p:password class="input--style-2 input"
+						placeholder="Confirmer le mot de passe" style="" required="true"
+						feedback="true" />
+				</div>
 
-			<h:panelGrid columns="2" cellpadding="5">
-				<p:outputLabel value="Confirmer mot de passe : "
-					for="passwordvalidation " />
-				<p:inputText id="passwordvalidation" required="true" />
-			</h:panelGrid>
-			<h:panelGrid columns="2" cellpadding="10">
-				<p:outputLabel value="Adresse : " for="adresse" />
-				<p:inputTextarea id="adresse" rows="3"
-					value="#{clientController.client.adresse.adresse}" />
-			</h:panelGrid>
-			<h:panelGrid columns="4" cellpadding="10">
-				<p:outputLabel value="Ville : " for="ville " />
-				<p:inputText id="ville"
-					value="#{clientController.client.adresse.ville}" />
-				<p:outputLabel value="Code postal : " for="codepostal " />
-				<p:inputText id="codepostal"
-					value="#{clientController.client.adresse.codePostal}" />
-			</h:panelGrid>
-			<h:commandButton value="Inscription"
-				action="#{clientController.saveClient}" styleClass="sansLabel" />
-		</h:form>
+
+				<div class="p-t-30">
+					<p:commandButton class="btn btn--radius btn--green "
+						value="S'inscrire" update="id_inscription_formulaire"
+						action="#{clientController.saveClient}" />
+				</div>
+			</h:form>
+		</div>
 
 	</ui:define>
-</ui:composition>
 
-</html>
+</ui:composition>

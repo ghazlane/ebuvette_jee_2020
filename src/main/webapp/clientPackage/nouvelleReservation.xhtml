@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="../templateClient.xhtml">
+	<ui:define name="content">
+		<div class="page-wrapper bg-white p-t-20 p-b-100 font-robo">
+			<div class="wrapper wrapper--w960">
+				<div class="card card-2">
+					<div class="card-heading"></div>
+					<div id="layout-portlets-cover">
+						<div class="card-body" style="background-color: antiquewhite">
+							<h2 class="title">Nouvelle Reservation</h2>
+							<h:form id="id_inscription_formulaire">
+								<p:outputLabel for="@next" value="Choisissez le magasin :" />
+								<h:selectOneMenu value="#{reservationController.idVendeur}">
+									<f:selectItems value="#{reservationController.listVendeur}"
+										var="vendeur" itemValue="#{vendeur.id}"
+										itemLabel="#{vendeur.nom}" />
+								</h:selectOneMenu>
+
+								<br />
+								<br />
+
+								<div class="input-group">
+									<p:inputText
+										value="#{reservationController.reservation.dateReservation}"
+										class="input--style-2 input" placeholder="Date Réservation"
+										validatorMessage="la date est invalide" required="true">
+									</p:inputText>
+								</div>
+
+								<div class="input-group">
+									<p:inputText
+										value="#{reservationController.reservation.heureReservation}"
+										class="input--style-2 input" placeholder="Heure Réservation"
+										validatorMessage="l'heure est invalide" required="true">
+									</p:inputText>
+								</div>
+
+								<div class="input-group">
+									<p:inputText
+										value="#{reservationController.reservation.nombrePlace}"
+										class="input--style-2 input" placeholder="Nombre place"
+										validatorMessage="l'heure est invalide" required="true">
+									</p:inputText>
+								</div>
+
+								<div class="p-t-30">
+									<p:commandButton class="btn btn--radius btn--green "
+										value="Valier la reservation"
+										update="id_inscription_formulaire"
+										action="#{reservationController.saveReservation}" />
+								</div>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -7,8 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>E-Buvette</title>
-
+	<title>E-buvette</title>
 	<f:facet name="first">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -26,6 +25,39 @@
 
 	<!-- Main JS-->
 	<h:outputScript name="js/global.js" library="inscription"></h:outputScript>
+
+</h:head>
+
+<h:body>
+	<ui:include src="navbarClient.xhtml" />
+
+	<div class="page-wrapper p-t-20 p-b-100 font-robo" style="">
+		<div class="wrapper wrapper--w960">
+			<ui:insert name="content">
+               			 Template
+            </ui:insert>
+		</div>
+	</div>
+
+
+
+	<!-- Icons font CSS-->
+	<h:outputStylesheet name="css/material-design-iconic-font.min.css"
+		library="inscription" />
+	<h:outputStylesheet name="css/font-awesome.min.css"
+		library="inscription" />
+	<!-- Font special for pages-->
+	<h:outputStylesheet
+		name="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+		library="inscription" />
+
+	<!-- Vendor CSS-->
+	<h:outputStylesheet name="css/select2.min.css" library="inscription" />
+	<h:outputStylesheet name="css/daterangepicker.css"
+		library="inscription" />
+
+	<!-- Main CSS-->
+	<h:outputStylesheet name="css/main.css" />
 	<style>
 .input {
 	outline: none;
@@ -110,43 +142,6 @@ li.dropdown {
 }
 </style>
 
-	<h:body>
-		<ui:include src="navbarInscription.xhtml" />
+</h:body>
 
-		<div class="page-wrapper bg-red p-t-20 p-b-100 font-robo">
-			<div class="wrapper wrapper--w960">
-				<div class="card card-2">
-					<div class="card-heading"></div>
-					<div id="layout-portlets-cover">
-						<ui:insert name="content">
-               			 Template
-            		</ui:insert>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-
-
-		<!-- Icons font CSS-->
-		<h:outputStylesheet name="css/material-design-iconic-font.min.css"
-			library="inscription" />
-		<h:outputStylesheet name="css/font-awesome.min.css"
-			library="inscription" />
-		<!-- Font special for pages-->
-		<h:outputStylesheet
-			name="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
-			library="inscription" />
-
-		<!-- Vendor CSS-->
-		<h:outputStylesheet name="css/select2.min.css" library="inscription" />
-		<h:outputStylesheet name="css/daterangepicker.css"
-			library="inscription" />
-
-		<!-- Main CSS-->
-		<h:outputStylesheet name="css/main.css" />
-
-
-	</h:body>
 </html>

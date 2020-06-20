@@ -34,9 +34,14 @@ public class Commande implements Serializable {
 	private String statutCommande;
 	private String dateHeureCommande;
 	private String dateHeureLivraison;
+	private float prixTotal;
 
 //	@OneToMany(mappedBy = "ligneCommande")
 //	private List<LigneCommande> listeLigneCommande;
+
+	public Commande() {
+		super();
+	}
 
 	public Commande(int id, Client client, Vendeur vendeur, String statutCommande, String dateHeureCommande,
 			String dateHeureLivraison) {
@@ -105,6 +110,30 @@ public class Commande implements Serializable {
 
 	public void setDateHeureLivraison(String dateHeureLivraison) {
 		this.dateHeureLivraison = dateHeureLivraison;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Vendeur getVendeur() {
+		return vendeur;
+	}
+
+	public void setVendeur(Vendeur vendeur) {
+		this.vendeur = vendeur;
+	}
+
+	public float getPrixTotal() {
+		return prixTotal;
+	}
+
+	public void setPrixTotal(float prixTotal) {
+		this.prixTotal = prixTotal;
 	}
 
 }

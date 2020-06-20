@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="../templateClient.xhtml">
+	<ui:define name="content">
+		<center>
+			<h1 style="margin-top: 30px; color: green;">
+				<strong>
+					<center>Bienvenue</center> <br />
+					<center>Commander vos repas dès maintenant</center>
+				</strong>
+			</h1>
+		</center>
+		<h:panelGrid columns="3" style="width:100%; margin-top : 20px ; ">
+			<p:outputPanel>
+				<div class="single-dish col-lg-4">
+					<div class="thumb">
+						<img class="img-fluid" src="../resources/accueil/img/d1.png"
+							alt="" />
+					</div>
+					<h4 class="text-uppercase pt-20 pb-20" style="text-align: center;">
+						<strong>McDonald's</strong>
+					</h4>
+				</div>
+			</p:outputPanel>
+			<p:outputPanel>
+				<div class="single-dish col-lg-4">
+					<div class="thumb">
+						<img class="img-fluid" src="../resources/accueil/img/d2.png"
+							alt="" />
+					</div>
+					<h4 class="text-uppercase pt-20 pb-20" style="text-align: center;">
+						<strong>Tacos De Lyon</strong>
+					</h4>
+				</div>
+			</p:outputPanel>
+			<p:outputPanel>
+				<div class="single-dish col-lg-4">
+					<div class="thumb">
+						<img class="img-fluid" src="../resources/accueil/img/d3.jpg"
+							alt="" style="width: 230px;" />
+					</div>
+					<h4 class="text-uppercase pt-20 pb-20" style="text-align: center;">
+						<strong>Tacos de Nice</strong>
+					</h4>
+				</div>
+			</p:outputPanel>
+		</h:panelGrid>
+		<h:panelGrid columns="3" style="width:100%; margin-top : 50px; ">
+			<p:outputPanel>
+				<div class="single-dish col-lg-4" style="width: 230px;">
+					<div class="thumb" style="width: 230px;">
+						<img class="img-fluid" src="../resources/accueil/img/KFC_logo.png"
+							alt="" style="width: 230px;" />
+					</div>
+					<h4 class="text-uppercase pt-20 pb-20" style="text-align: center;">
+						<strong>KFC</strong>
+					</h4>
+				</div>
+			</p:outputPanel>
+			<p:outputPanel>
+				<div class="single-dish col-lg-4" style="width: 230px;">
+					<div class="thumb" style="width: 230px;">
+						<img class="img-fluid" src="../resources/accueil/img/iceberry.jpg"
+							alt="" style="width: 230px;" />
+					</div>
+					<h4 class="text-uppercase pt-20 pb-20" style="text-align: center;">
+						<strong>Ice berry</strong>
+					</h4>
+				</div>
+			</p:outputPanel>
+			<p:outputPanel>
+				<div class="single-dish col-lg-4" style="width: 230px;">
+					<div class="thumb" style="width: 230px;">
+						<img class="img-fluid" src="../resources/accueil/img/burger.png"
+							alt="" style="width: 230px;" />
+					</div>
+					<h4 class="text-uppercase pt-20 pb-20" style="text-align: center;">
+						<strong>Burger King</strong>
+					</h4>
+				</div>
+			</p:outputPanel>
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>
