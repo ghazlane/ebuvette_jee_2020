@@ -16,25 +16,38 @@
 					<li class="dropdown"><a href="/index.html#contact">Mes
 							Produits</a>
 						<div class="dropdown-content">
-							<a href="#"
-								style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;">Nouveau
-								produit</a> <a href="#" style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;">Liste des produits</a>
+							<h:commandLink action="#{produitController.nouveauProduit}"
+								style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;"
+								value="Nouveau Produit" />
+							<h:commandLink action="#{produitController.listProduit}"
+								style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;"
+								value="Liste Produits" />
+
 						</div></li>
-					<li class="dropdown"><a href="/index.html#contact">
+					<li class="dropdown"><a href="">
 							Réservations</a>
 						<div class="dropdown-content">
-								href="#" style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;">Liste des réservations</a>
+							<h:commandLink action="#{produitController.listProduit}"
+								style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;"
+								value="Liste
+								des réservations" />
 						</div></li>
-					<li class="dropdown"><a href="/index.html#contact">
+					<li class="dropdown"><a href="">
 							Commandes</a>
 						<div class="dropdown-content">
-								href="#" style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;">Liste des commandes</a>
+							<h:commandLink action="#{produitController.listProduit}"
+								style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;"
+								value="Liste
+								des commandes" />
 						</div></li>
 					<li><a href="/inscription.jsf">Contact</a></li>
 					<li class="dropdown"><a href="/index.html#contact">Profil</a>
 						<div class="dropdown-content">
-							<a href="#" style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;">Mon profil</a> <a href="#"
-								style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;">Se déconnceter</a>
+							<a href="#"
+								style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;">Mon
+								profil</a> <a href="#"
+								style="color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left;">Se
+								déconnceter</a>
 						</div></li>
 				</ul>
 			</nav>

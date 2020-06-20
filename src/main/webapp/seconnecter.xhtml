@@ -5,11 +5,12 @@
 	xmlns:p="http://primefaces.org/ui" template="templateInscription.xhtml">
 
 	<ui:define name="content">
-
+		
+				
 		<div class="card-body" style="padding-top: 100px; margin-top: 100px">
 			<h2 class="title">Se connecter</h2>
 			<h:form id="id_connexion_formulaire">
-				
+				<p:messages id="id_inscription_messages" />
 				<div class="input-group">
 					<p:inputText class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"  style="width: 400px;"
 						value="" required="true">
