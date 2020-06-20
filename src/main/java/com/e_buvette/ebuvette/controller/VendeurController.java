@@ -12,6 +12,7 @@ import org.ocpsoft.rewrite.faces.annotation.Deferred;
 import org.ocpsoft.rewrite.faces.annotation.IgnorePostback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.e_buvette.ebuvette.models.Adresse;
@@ -26,6 +27,9 @@ import com.e_buvette.ebuvette.repository.VendeurRepository;
 public class VendeurController {
 	@Autowired
 	private VendeurRepository vendeurRepository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	private Vendeur vendeur;
 	private List<Vendeur> listeVendeur;
@@ -45,6 +49,8 @@ public class VendeurController {
 
 	public String formulaireInscription() {
 //		System.out.println("je suis ici");
+		vendeur.setPassword(passwordEncoder.encode(vendeur.getPassword()));
+		vendeur.setRole("VENDEUR");
 		this.vendeur = new Vendeur();
 		this.vendeur.setAdresseMagasin(new Adresse());
 		return "/vendeur/inscriptionVendeur.xhtml?faces-redirect=true";

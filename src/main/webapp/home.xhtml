@@ -9,6 +9,13 @@
 
 	<ui:define name="content">
 		<h1>Contenu de la page accueil</h1>
+		<h:form >  
+			
+			<h:commandButton id="submit-button" value="Inscription" action="#{authController.userInscription()}" />  
+		</h:form>
+		<h:form>
+			<h:commandButton id="submit-button" value="Connexion" action="#{authController.login()}" />  
+		</h:form> 
 	</ui:define>
 </ui:composition>
 

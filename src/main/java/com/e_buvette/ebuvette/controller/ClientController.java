@@ -12,6 +12,7 @@ import org.ocpsoft.rewrite.faces.annotation.Deferred;
 import org.ocpsoft.rewrite.faces.annotation.IgnorePostback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.e_buvette.ebuvette.models.Adresse;
@@ -26,6 +27,8 @@ import com.e_buvette.ebuvette.repository.ClientRepository;
 public class ClientController {
 	@Autowired
 	private ClientRepository clientRepository;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	private Client client;
 	private List<Client> listeClient;
@@ -51,10 +54,12 @@ public class ClientController {
 	}
 
 	public String saveClient() {
-		System.out.println("je suis save client");
+	
+	//System.out.println(client.getPassword() + "====>" + passwordEncoder.encode(client.getPassword()));
+		client.setPassword(passwordEncoder.encode(client.getPassword()));
+		client.setRole("CLIENT");
 		clientRepository.save(client);
 		clientRepository.flush();
-		// client = new Client();
 		return "/clientPackage/messageSucces.xhtml?faces-redirect=true";
 	}
 
@@ -102,4 +107,6 @@ public class ClientController {
 		this.listeClient = listeClient;
 	}
 
+
+	
 }

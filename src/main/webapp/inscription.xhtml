@@ -13,7 +13,7 @@
 					<div class="col-4">
 						<div class="input-group">
 							<p:inputText class="input--style-2 input" placeholder="Nom" validatorMessage="Le nom ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
-								value="" required="true">
+								value="#{clientController.client.nom}" required="true">
 								<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
 							</p:inputText>
 						</div>
@@ -22,7 +22,7 @@
 					<div class="col-4">
 						<div class="input-group">
 							<p:inputText class="input--style-2 input" placeholder="Prénom" validatorMessage="Le prénom ne doit contenir que des lettres et ne doit pas dépasser 30 caractères."
-								value="" required="true">
+								value="#{clientController.client.prenom}" required="true">
 								<f:validateRegex pattern="^[a-zA-Z ]{1,30}$" />
 							</p:inputText>
 						</div>
@@ -30,30 +30,30 @@
 				</div>
 				<div class="input-group">
 					<p:inputText class="input--style-2 input" placeholder="Téléphone" validatorMessage="Votre numéro de téléphone est invalide"
-						value="" required="true" >
+						value="#{clientController.client.numeroTelephone}" required="true" >
 						<f:validateRegex pattern="^[0-9]{1,20}$" />
 					</p:inputText>
 				</div>
 				<div class="input-group">
 					<p:inputText class="input--style-2 input" placeholder="Adresse" validatorMessage="Votre adresse est invalide"
-						value="" required="true">
+						value="#{clientController.client.adresse.adresse}" required="true">
 							<f:validateRegex pattern="^[a-zA-Z ]{1,100}$" />
 					</p:inputText>
 				</div>
 				<div class="input-group">
-					<p:inputText class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"
-						value="" required="true">
-						<f:validateRegex
-							pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+					<p:inputText id="email" class="input--style-2 input" placeholder="Email" 
+						value="#{clientController.client.username}" required="true">
+						<f:validator  validatorId="com.ebuvette.EmailValidator"  />
 					</p:inputText>
+					  <h:message for="email" style="color:red" />
 				</div>
 				<div class="input-group">
 					<p:password class="input--style-2 input" placeholder="Mot de passe" 
-						value="" style="" required="true" feedback="true" />
+						value="#{clientController.client.password}" style="" required="true" feedback="true" />
 				</div>
 				<div class="p-t-30">
 					<p:commandButton class="btn btn--radius btn--green " value="S'inscrire"
-										update="id_inscription_formulaire"
+										update="id_inscription_formulaire" action="#{clientController.saveClient()}"
 										 />
 				</div>
 			</h:form>

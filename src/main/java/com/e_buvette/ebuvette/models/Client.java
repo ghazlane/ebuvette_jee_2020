@@ -19,14 +19,14 @@ import com.sun.istack.NotNull;
 @Transactional
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Client implements Serializable {
+public class Client extends User implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id
+	/*@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int id;*/
 
 //    @Size(max = 100)
 //    @Column(unique = true)
@@ -36,12 +36,12 @@ public class Client implements Serializable {
 	private String prenom;
 	@NotNull
 	@Column(unique = true)
-	private String email;
+	//private String email;
 	private String numeroTelephone;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "adresse")
 	private Adresse adresse;
-	private String password;
+	//private String password;
 
 //	@OneToMany(mappedBy = "commande")
 //	private Set<Commande> listCommande;
@@ -53,23 +53,16 @@ public class Client implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Client(String nom, String prenom, String email, String numeroTelephone, Adresse adresse, String password) {
+	
+
+	public Client(String nom, String prenom, String numeroTelephone, Adresse adresse) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
-		this.email = email;
 		this.numeroTelephone = numeroTelephone;
 		this.adresse = adresse;
-		this.password = password;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getNom() {
 		return nom;
@@ -87,14 +80,6 @@ public class Client implements Serializable {
 		this.prenom = prenom;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getNumeroTelephone() {
 		return numeroTelephone;
 	}
@@ -109,14 +94,6 @@ public class Client implements Serializable {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 //	public List<Commande> getListCommande() {
