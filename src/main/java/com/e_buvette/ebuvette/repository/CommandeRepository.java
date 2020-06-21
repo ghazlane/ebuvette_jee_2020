@@ -9,4 +9,6 @@ import com.e_buvette.ebuvette.models.Commande;
 public interface CommandeRepository extends JpaRepository<Commande, Integer> {
 	public List<Commande> findByClientId(int id);
 
+	public List<Commande> findByVendeurId(int id);
+
 }

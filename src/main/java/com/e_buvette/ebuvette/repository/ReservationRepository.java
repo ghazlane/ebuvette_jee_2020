@@ -8,4 +8,5 @@ import com.e_buvette.ebuvette.models.Reservation;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
 	public List<Reservation> findByClientId(int id);
+	public List<Reservation> findByVendeurId(int id);
 }

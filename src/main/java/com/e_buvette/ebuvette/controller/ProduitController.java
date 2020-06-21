@@ -59,7 +59,7 @@ public class ProduitController {
 		this.produit = new Produit();
 		this.produit.setStock(1);
 //		this.produit.setAdresse(new Adresse());
-		return "/produit/nouveauProduit.xhtml?faces-redirect=true";
+		return "/vendeur/nouveauProduit.xhtml?faces-redirect=true";
 	}
 
 	public String saveProduit() {
@@ -68,7 +68,7 @@ public class ProduitController {
 		produitRepository.save(produit);
 		produitRepository.flush();
 		// client = new Client();
-		return "/produit/messageSucces.xhtml?faces-redirect=true";
+		return "/vendeur/messageSucces.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
@@ -88,6 +88,15 @@ public class ProduitController {
 //		}
 		return "/clientPackage/listProduitClient.xhtml?faces-redirect=true";
 	}
+	
+	@Transactional
+	public String listProduitForVendeur() {
+		this.listeProduit = this.produitRepository.findByVendeurId(this.vendeurRepository.getOne(21).getId());
+//		for (Client client : listeClient) {
+//			System.out.println("----------->" + client.getNom());
+//		}
+		return "/vendeur/listProduitVendeur.xhtml?faces-redirect=true";
+	}
 
 	public String detailsProduit(int id) {
 		this.produit = this.produitRepository.getOne(id);
@@ -95,7 +104,12 @@ public class ProduitController {
 		// System.out.println("parfait" + id);
 		return "/produit/detailProduit.xhtml?faces-redirect=true";
 	}
-
+	public String detailsProduitForVendeur(int id) {
+		this.produit = this.produitRepository.getOne(id);
+		System.out.println("----->" + produit.getNom());
+		// System.out.println("parfait" + id);
+		return "/vendeur/detailProduit.xhtml?faces-redirect=true";
+	}
 	@Transactional
 	public String updateProduit(int id) {
 		this.produit = this.produitRepository.getOne(id);
@@ -106,7 +120,8 @@ public class ProduitController {
 	@Transactional
 	public String deleteProduit(int id) {
 		this.produitRepository.delete(this.produitRepository.getOne(id));
-		return this.listProduit();
+		System.out.println("-----> hiiii" );
+		return this.listProduitForVendeur();
 	}
 
 	public Produit getProduit() {

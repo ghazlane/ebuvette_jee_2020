@@ -82,9 +82,14 @@ public class ReservationController {
 //		System.out.println("je suis la");
 		this.reservation.setClient(clientRepository.getOne(11));
 		this.reservation.setVendeur(vendeurRepository.getOne(this.idVendeur));
-		this.reservation.setStatus("En attente");
+		this.reservation.setStatus(false);
 		this.reservationRepository.save(reservation);
 		return "/clientPackage/panierBienAjoute.xhtml?faces-redirect=true";
+	}
+	
+	public String changeStatus(Reservation r) {
+		this.reservationRepository.saveAndFlush(r);
+		return "/vendeur/listReservation.xhtml?faces-redirect=true";
 	}
 
 	public String listReservationClient() {
@@ -92,6 +97,11 @@ public class ReservationController {
 		return "/clientPackage/listReservationClient.xhtml?faces-redirect=true";
 	}
 
+	public String listReservationVendeur() {
+		this.listeReservation = this.reservationRepository.findByVendeurId(21);
+		return "/vendeur/listReservation.xhtml?faces-redirect=true";
+	}
+	
 	public List<Reservation> getListeReservation() {
 		return listeReservation;
 	}
@@ -99,5 +109,7 @@ public class ReservationController {
 	public void setListeReservation(List<Reservation> listeReservation) {
 		this.listeReservation = listeReservation;
 	}
+	
+	
 
 }
