@@ -7,8 +7,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.e_buvette.ebuvette.models.User;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	 @Query("SELECT u FROM User u WHERE u.username = :username")
 	    public User getUserByUsername(@Param("username") String username);
+
+	
 }
