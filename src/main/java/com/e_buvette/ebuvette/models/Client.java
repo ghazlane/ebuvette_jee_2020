@@ -19,15 +19,16 @@ import com.sun.istack.NotNull;
 @Transactional
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Client extends User implements Serializable {
+public class Client implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	/*@Id
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;*/
+	private int id;
 
+	
 //    @Size(max = 100)
 //    @Column(unique = true)
 	@NotNull
@@ -41,7 +42,7 @@ public class Client extends User implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "adresse")
 	private Adresse adresse;
-
+	private String password;
 
 
 //	@OneToMany(mappedBy = "commande")
@@ -53,19 +54,43 @@ public class Client extends User implements Serializable {
 	public Client() {
 		// TODO Auto-generated constructor stub
 	}
-
 	
 
 
-	public Client(String nom, String prenom, String email, String numeroTelephone, Adresse adresse) {
-	super();
-	this.nom = nom;
-	this.prenom = prenom;
-	this.email = email;
-	this.numeroTelephone = numeroTelephone;
-	this.adresse = adresse;
-}
+	public Client(int id, String nom, String prenom, String email, String numeroTelephone, Adresse adresse,
+			String password) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.numeroTelephone = numeroTelephone;
+		this.adresse = adresse;
+		this.password = password;
+	}
 
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 
 

@@ -57,8 +57,8 @@ public class ClientController {
 	
 	//System.out.println(client.getPassword() + "====>" + passwordEncoder.encode(client.getPassword()));
 		client.setPassword(passwordEncoder.encode(client.getPassword()));
-		client.setRole("CLIENT");
-		client.setUsername(client.getEmail());
+		//client.setRole("CLIENT");
+		//client.setUsername(client.getEmail());
 		clientRepository.save(client);
 		clientRepository.flush();
 		return "/clientPackage/messageSucces.xhtml?faces-redirect=true";

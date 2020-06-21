@@ -51,7 +51,7 @@ public class VendeurController {
 	public String formulaireInscription() {
 //		System.out.println("je suis ici");
 		vendeur.setPassword(passwordEncoder.encode(vendeur.getPassword()));
-		vendeur.setRole("VENDEUR");
+		//vendeur.setRole("VENDEUR");
 		this.vendeur = new Vendeur();
 		this.vendeur.setAdresseMagasin(new Adresse());
 		return "/vendeur/inscriptionVendeur.xhtml?faces-redirect=true";

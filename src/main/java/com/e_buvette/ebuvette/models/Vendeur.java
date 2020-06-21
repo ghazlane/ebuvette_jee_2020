@@ -17,12 +17,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Transactional
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Vendeur extends User implements Serializable {
+public class Vendeur implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -39,23 +41,54 @@ public class Vendeur extends User implements Serializable {
 	private String horaireOuverture;
 	private String horaireFermeture;
 //	private List<Produit> listeProduits;
+	private String password;
 
 
 	public Vendeur() {
 		super();
 	}
 
-	public Vendeur( String nom, String prenom, String email, String nomMagasin, Adresse adresseMagasin,
-			String serviceMagasin, String horaireOuverture, String horaireFermeture) {
+	
+
+	public Vendeur(int id, String nom, String prenom, String email, String nomMagasin, String numTelephone,
+			Adresse adresseMagasin, String serviceMagasin, String horaireOuverture, String horaireFermeture,
+			String password) {
 		super();
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.nomMagasin = nomMagasin;
+		this.numTelephone = numTelephone;
 		this.adresseMagasin = adresseMagasin;
 		this.serviceMagasin = serviceMagasin;
 		this.horaireOuverture = horaireOuverture;
 		this.horaireFermeture = horaireFermeture;
+		this.password = password;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 

@@ -11,6 +11,7 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,22 +32,25 @@ public class ClientTestArquillian {
 
 	 @Inject
      Client client; 
+	 
+	 @Autowired
+	 ClientRepository clientRepository;
      
      @SuppressWarnings("null")
 	@Test
      public void testClient() {
-         ClientRepository clientRepository = null;
+         
          assertTrue(clientRepository .findAll().isEmpty());
          Client c1 = new Client();
          c1.setNom("Sabour");
          c1.setPrenom("Ilham");
-         c1.setUsername("ilhamS@gmail.com");
+         c1.setEmail("ilhamS@gmail.com");
          c1.setNumeroTelephone("04578964");
          c1.setPassword("123");
          Client c2 = new Client();
          c2.setNom("Wiam");
          c2.setPrenom("Ilhami");
-         c2.setUsername("iS@gmail.com");
+         c2.setEmail("iS@gmail.com");
          c2.setNumeroTelephone("0457896447");
          c2.setPassword("123");
          clientRepository.save(c1);

@@ -73,14 +73,14 @@
 							<p:selectOneButton id="size"
 								value="#{produitController.produit.size}">
 								<f:selectItem itemLabel="Normal" itemValue="Normal" />
-								<f:selectItem itemLabel="X" itemValue="X" />
+								<f:selectItem itemLabel="L" itemValue="L" />
 								<f:selectItem itemLabel="XL" itemValue="XL" />
 								<f:selectItem itemLabel="XXL" itemValue="XXL" />
 							</p:selectOneButton>
 
 						</h:panelGrid>
 						<div class="p-t-30">
-							<h:commandButton value="Ajouter"
+							<h:commandButton value="Ajouter" class="btn btn--radius btn--green"
 								update="id_nouveau_produit_formulaire"
 								action="#{produitController.saveProduit}" styleClass="sansLabel" />
 						</div>
