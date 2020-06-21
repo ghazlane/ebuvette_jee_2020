@@ -5,10 +5,17 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="../templateAdministrateur.xhtml">
+<ui:composition template="../templateVendeur.xhtml">
 	<ui:define name="content">
-		<h1>Liste des produits</h1>
+		<h1 style="margin-top: 30px; color: green;">
+				<strong> <br />
+					<center>Liste des produits</center>
+				</strong>
+			</h1>
+			<br/><br/><br/>
+			
 		<h:form id="form">
+		<p:messages id="id_messages" />
 			<p:repeat value="#{produitController.listeProduit}" var="produit">
 				<h:panelGrid columns="4" style="width:100%"
 					columnClasses="logo,detail">
@@ -56,7 +63,7 @@
 					<p:outputPanel>
 						<p:commandButton value="Détail" id="withIcon"
 							action="#{produitController.detailsProduit(produit.id)}" update="growl"
-							style="margin-right:20px;" icon="pi pi-save" />
+							style="margin:10px;" icon="pi pi-save" />
 
 						<p:linkButton value="" style="margin-right:20px;">
 							<f:param name="id" value="#{produit.id}" />

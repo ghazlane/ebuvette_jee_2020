@@ -45,7 +45,7 @@ public class VendeurController {
 	@RequestAction
 	@IgnorePostback
 	public String home() {
-		return "/vendeur.xhtml?faces-redirect=true";
+		return "vendeur/accueilVendeur.xhtml?faces-redirect=true";
 	}
 
 	public String formulaireInscription() {

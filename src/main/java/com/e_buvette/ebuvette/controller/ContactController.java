@@ -62,6 +62,12 @@ public class ContactController {
 		// client = new Client();
 		return "/clientPackage/panierBienAjoute.xhtml?faces-redirect=true";
 	}
+	
+	public String saveContactVendeur() {
+		contactRepository.save(contact);
+		contactRepository.flush();
+		return "/vendeur/messageSucces.xhtml?faces-redirect=true";
+	}
 
 	public String listContact() {
 		this.listeContact = this.contactRepository.findAll();

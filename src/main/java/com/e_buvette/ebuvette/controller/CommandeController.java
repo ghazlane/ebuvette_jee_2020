@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import com.e_buvette.ebuvette.models.Commande;
 import com.e_buvette.ebuvette.models.LigneCommande;
+import com.e_buvette.ebuvette.models.Reservation;
 import com.e_buvette.ebuvette.repository.ClientRepository;
 import com.e_buvette.ebuvette.repository.CommandeRepository;
 import com.e_buvette.ebuvette.repository.LigneCommandeRepository;
@@ -107,7 +108,7 @@ public class CommandeController {
 	public String saveCommande() {
 		this.commande.setclient(this.clientRepository.getOne(11));
 		this.commande.setDateHeureCommande("20");
-		this.commande.setStatutCommande("En attente");
+		this.commande.setStatutCommande(false);
 		this.commande.setvendeur(this.vendeurRepository.getOne(21));
 		this.commande.setPrixTotal(prixTotal);
 		this.commandeRepository.save(this.commande);
@@ -128,7 +129,28 @@ public class CommandeController {
 		}
 		return "/clientPackage/mesCommandes.xhtml?faces-redirect=true";
 	}
+	public String listCommandeVendeur() {
+		this.listeCommande = this.commandeRepository.findByVendeurId(this.vendeurRepository.getOne(21).getId());
+		for (Commande ligneCommande : listeCommande) {
+			System.out.println("----------------------> ");
+		}
+		return "/vendeur/listCommande.xhtml?faces-redirect=true";
+	}
 
+	public String detailsCommande(int id) {
+		this.ligneCommandes = this.ligneCommandeRepository.findByCommandeId(id);
+		this.commande = this.commandeRepository.getOne(id);
+		return "/vendeur/detailCommande.xhtml?faces-redirect=true";
+	}
+	
+	public String changeStatus(Commande c) {
+
+		System.out.println("----------------------> hi ");
+		this.commandeRepository.saveAndFlush(c);
+		System.out.println("----------------------> hi ");
+		return "/vendeur/listCommande.xhtml?faces-redirect=true";
+	}
+	
 	public List<Commande> getListeCommande() {
 		return listeCommande;
 	}

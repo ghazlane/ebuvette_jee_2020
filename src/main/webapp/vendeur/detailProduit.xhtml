@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../templateVendeur.xhtml">
+
+	<ui:define name="content">
+		<div class="card card-2">
+
+			<div id="layout-portlets-cover" style="text-align: center">
+				<div  style="text-align: center; padding: 50px 150px 50px 150px" >
+
+					<h2 class="title">Détail Produit</h2>
+					<div style="text-align: center">
+						<p:graphicImage library="photoproduit" name="tacos.jpeg"
+							width="250px" height="250px" />
+					</div>
+					<h:form id="id_nouveau_produit_formulaire">
+
+						<p:messages id="id_messages" />
+						<div class="input-group">
+							<h:panelGrid columns="2" cellpadding="5">
+								<h:outputText value="Magasin : " />
+								<h:outputText
+									value="#{produitController.produit.vendeur.nomMagasin}"
+									style="font-weight: bold" />
+							</h:panelGrid>
+						</div>
+
+						<div class="input-group">
+							<h:panelGrid columns="2" cellpadding="5">
+								<h:outputText value="Titre : " />
+								<h:outputText value="#{produitController.produit.nom}"
+									style="font-weight: bold" />
+							</h:panelGrid>
+						</div>
+
+						<div class="input-group">
+							<h:panelGrid columns="2" cellpadding="5">
+								<h:outputText value="Prix Unitaire : " />
+								<h:outputText value="#{produitController.produit.prixUnitaire}"
+									style="font-weight: bold" />
+							</h:panelGrid>
+						</div>
+						<div class="input-group">
+							<h:panelGrid columns="2" cellpadding="5">
+								<h:outputText value="Stock : " />
+								<h:outputText value="#{produitController.produit.stock}"
+									style="font-weight: bold" />
+							</h:panelGrid>
+						</div>
+
+						<div class="input-group">
+							<h:panelGrid columns="2" cellpadding="5">
+								<h:outputText value="Temps de préparation : " />
+								<h:outputText
+									value="#{produitController.produit.tempPreparation}"
+									style="font-weight: bold" />
+							</h:panelGrid>
+						</div>
+
+						<div class="input-group">
+							<h:panelGrid columns="2" cellpadding="5">
+								<h:outputText value="Size : " />
+								<h:outputText value="#{produitController.produit.size}"
+									style="font-weight: bold" />
+							</h:panelGrid>
+						</div>
+
+					</h:form>
+
+
+				</div>
+			</div>
+
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+</html>
