@@ -36,12 +36,13 @@ public class Client extends User implements Serializable {
 	private String prenom;
 	@NotNull
 	@Column(unique = true)
-	//private String email;
+	private String email;
 	private String numeroTelephone;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	@JoinColumn(name = "adresse")
 	private Adresse adresse;
-	//private String password;
+
+
 
 //	@OneToMany(mappedBy = "commande")
 //	private Set<Commande> listCommande;
@@ -55,13 +56,17 @@ public class Client extends User implements Serializable {
 
 	
 
-	public Client(String nom, String prenom, String numeroTelephone, Adresse adresse) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.numeroTelephone = numeroTelephone;
-		this.adresse = adresse;
-	}
+
+	public Client(String nom, String prenom, String email, String numeroTelephone, Adresse adresse) {
+	super();
+	this.nom = nom;
+	this.prenom = prenom;
+	this.email = email;
+	this.numeroTelephone = numeroTelephone;
+	this.adresse = adresse;
+}
+
+
 
 
 	public String getNom() {
@@ -95,6 +100,7 @@ public class Client extends User implements Serializable {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
+	
 
 //	public List<Commande> getListCommande() {
 //		return listCommande;
@@ -103,6 +109,18 @@ public class Client extends User implements Serializable {
 //	public void setListCommande(List<Commande> listCommande) {
 //		this.listCommande = listCommande;
 //	}
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

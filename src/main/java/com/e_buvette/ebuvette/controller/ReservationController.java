@@ -49,7 +49,7 @@ public class ReservationController {
 		System.out.println("je suis ici ---> ");
 		this.listVendeur = this.vendeurRepository.findAll();
 		for (Vendeur vendeur : listVendeur) {
-			System.out.println("-----------------> test" + vendeur.getEmail());
+			System.out.println("-----------------> test" + vendeur.getUsername());
 		}
 		return "/clientPackage/nouvelleReservation.xhtml?faces-redirect=true";
 	}

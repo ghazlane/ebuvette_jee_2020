@@ -1,5 +1,6 @@
 package com.e_buvette.ebuvette.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.*;
@@ -16,6 +17,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
+	@Autowired
+	public CustomLoginAccessHandler successHandler;
+	
 	@Bean
     public UserDetailsService userDetailsService() {
         return new UserDetailsServiceImpl();
@@ -54,15 +58,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
           // .and()
             .formLogin()
             .loginPage("/seconnecter.xhtml")
-            //.loginProcessingUrl("/seconnecter")
-            .defaultSuccessUrl("/home",true)
-            //.failureUrl("/login.html?error=true")
+            .successHandler(successHandler)
             .permitAll()
+            //.loginProcessingUrl("/seconnecter")
+            .failureUrl("/seconnecter.xhtml?error=true")
             .and()
             .logout()
            /* .logoutUrl("/logout")
             .logoutSuccessUrl("/logoutSuccessful")*/
             .permitAll();
+        http.csrf().disable();
     }
     
     @Override

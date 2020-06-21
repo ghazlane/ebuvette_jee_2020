@@ -11,15 +11,17 @@
 			<h2 class="title">Se connecter</h2>
 			<h:form id="id_connexion_formulaire">
 				<p:messages id="id_inscription_messages" />
+				<p:outputLabel value="Login failed!" styleClass="red"
+       				 rendered="${!empty param['error']}" />
 				<div class="input-group">
-					<p:inputText class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"  style="width: 400px;"
+					<p:inputText id ="username" class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"  style="width: 400px;"
 						value="" required="true">
 						<f:validateRegex
 							pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
 					</p:inputText>
 				</div>
 				<div class="input-group">
-					<p:password class="input--style-2 input" placeholder="Mot de passe" 
+					<p:password id="password" class="input--style-2 input" placeholder="Mot de passe" 
 						value=""  required="true" feedback="true" />
 				</div>
 				<div class="p-t-30">

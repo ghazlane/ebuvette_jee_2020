@@ -25,6 +25,7 @@ public class Vendeur extends User implements Serializable {
 
 	private String nom;
 	private String prenom;
+	private String email;
 	private String nomMagasin;
 	private String numTelephone;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
@@ -39,23 +40,25 @@ public class Vendeur extends User implements Serializable {
 	private String horaireFermeture;
 //	private List<Produit> listeProduits;
 
+
 	public Vendeur() {
 		super();
 	}
 
+	public Vendeur( String nom, String prenom, String email, String nomMagasin, Adresse adresseMagasin,
+			String serviceMagasin, String horaireOuverture, String horaireFermeture) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.nomMagasin = nomMagasin;
+		this.adresseMagasin = adresseMagasin;
+		this.serviceMagasin = serviceMagasin;
+		this.horaireOuverture = horaireOuverture;
+		this.horaireFermeture = horaireFermeture;
+	}
 
-	public Vendeur(String nom, String prenom, String nomMagasin, String numTelephone, Adresse adresseMagasin,
-		String serviceMagasin, String horaireOuverture, String horaireFermeture) {
-	super();
-	this.nom = nom;
-	this.prenom = prenom;
-	this.nomMagasin = nomMagasin;
-	this.numTelephone = numTelephone;
-	this.adresseMagasin = adresseMagasin;
-	this.serviceMagasin = serviceMagasin;
-	this.horaireOuverture = horaireOuverture;
-	this.horaireFermeture = horaireFermeture;
-}
+
 
 	public String getNom() {
 		return nom;
@@ -73,7 +76,14 @@ public class Vendeur extends User implements Serializable {
 		this.prenom = prenom;
 	}
 
-	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getNomMagasin() {
 		return nomMagasin;
 	}
@@ -114,6 +124,10 @@ public class Vendeur extends User implements Serializable {
 		this.horaireFermeture = horaireFermeture;
 	}
 
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	public String getNumTelephone() {
 		return numTelephone;
