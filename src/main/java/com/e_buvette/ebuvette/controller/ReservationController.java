@@ -42,15 +42,10 @@ public class ReservationController {
 		this.reservation = new Reservation();
 		this.listVendeur = new ArrayList<>();
 		this.listeReservation = new ArrayList<>();
-		// this.listVendeur = this.vendeurRepository.findAll();
 	}
 
 	public String nouvelleReservation() {
-		System.out.println("je suis ici ---> ");
 		this.listVendeur = this.vendeurRepository.findAll();
-		/*for (Vendeur vendeur : listVendeur) {
-			System.out.println("-----------------> test" + vendeur.getUsername());
-		}*/
 		return "/clientPackage/nouvelleReservation.xhtml?faces-redirect=true";
 	}
 
@@ -79,7 +74,6 @@ public class ReservationController {
 	}
 
 	public String saveReservation() {
-//		System.out.println("je suis la");
 		this.reservation.setClient(clientRepository.getOne(11));
 		this.reservation.setVendeur(vendeurRepository.getOne(this.idVendeur));
 		this.reservation.setStatus(false);

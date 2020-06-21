@@ -49,7 +49,6 @@ public class VendeurController {
 	}
 
 	public String formulaireInscription() {
-//		System.out.println("je suis ici");
 		vendeur.setPassword(passwordEncoder.encode(vendeur.getPassword()));
 		//vendeur.setRole("VENDEUR");
 		this.vendeur = new Vendeur();
@@ -58,33 +57,25 @@ public class VendeurController {
 	}
 
 	public String saveVendeur() {
-		System.out.println("je suis save client");
 		vendeurRepository.save(vendeur);
 		vendeurRepository.flush();
-		// client = new Client();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Votre opération a été Bien effectué."));
 		return "/vendeur/seconnecter.xhtml?faces-redirect=true";
 	}
 
 	public String listVendeur() {
 		this.listeVendeur = this.vendeurRepository.findAll();
-//		for (Client client : listeClient) {
-//			System.out.println("----------->" + client.getNom());
-//		}
 		return "/vendeur/listVendeur.xhtml?faces-redirect=true";
 	}
 
 	public String detailsVendeur(int id) {
 		this.vendeur = this.vendeurRepository.getOne(id);
-		System.out.println("----->" + vendeur.getNom());
-		// System.out.println("parfait" + id);
 		return "/vendeur/detailVendeur.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
 	public String updateVendeur(int id) {
 		this.vendeur = this.vendeurRepository.getOne(id);
-		System.out.println("----->" + vendeur.getNom());
 		return "/vendeur/inscriptionVendeur.xhtml?faces-redirect=true";
 	}
 

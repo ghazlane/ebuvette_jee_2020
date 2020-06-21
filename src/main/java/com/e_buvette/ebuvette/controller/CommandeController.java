@@ -84,17 +84,8 @@ public class CommandeController {
 	}
 
 	public void ajouterPanier(int id) {
-		System.out.println("je suis appele");
 		this.ligneCommandes.add(new LigneCommande(this.commande, produitRepository.getOne(id), 1));
 		this.prixTotal += produitRepository.getOne(id).getPrixUnitaire();
-		for (LigneCommande ligneCommande : ligneCommandes) {
-			System.out.println("------------>" + ligneCommande.getProduit().getId());
-		}
-
-	}
-
-	public void deleteProduit() {
-		System.out.println("-------> je suis clique");
 	}
 
 	public float getPrixTotal() {
@@ -122,33 +113,22 @@ public class CommandeController {
 	}
 
 	public String myCommandes() {
-		System.out.println("ca marche");
 		this.listeCommande = this.commandeRepository.findByClientId(this.clientRepository.getOne(11).getId());
-		for (Commande ligneCommande : listeCommande) {
-			System.out.println("----------------------> ");
-		}
 		return "/clientPackage/mesCommandes.xhtml?faces-redirect=true";
 	}
 	public String listCommandeVendeur() {
 		this.listeCommande = this.commandeRepository.findByVendeurId(this.vendeurRepository.getOne(21).getId());
-		for (Commande ligneCommande : listeCommande) {
-			System.out.println("----------------------> ");
-		}
 		return "/vendeur/listCommande.xhtml?faces-redirect=true";
 	}
 
 	public String detailsCommande(int id) {
 		this.ligneCommandes = this.ligneCommandeRepository.findByCommandeId(id);
 		this.commande = this.commandeRepository.getOne(id);
-		System.out.println("----------------------> hi "+commande.getStatutCommande());
 		return "/vendeur/detailCommande.xhtml?faces-redirect=true";
 	}
 	
 	public String changeStatus(Commande c) {
-
-		System.out.println("----------------------> hi ");
 		this.commandeRepository.saveAndFlush(c);
-		System.out.println("----------------------> hi ");
 		return "/vendeur/listCommande.xhtml?faces-redirect=true";
 	}
 	

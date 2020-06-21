@@ -49,15 +49,12 @@ public class ClientController {
 	}
 
 	public String formulaireInscription() {
-//		System.out.println("je suis ici");
 		this.client = new Client();
 		this.client.setAdresse(new Adresse());
 		return "/clientPackage/inscriptionClient.xhtml?faces-redirect=true";
 	}
 
 	public String saveClient() {
-	
-	//System.out.println(client.getPassword() + "====>" + passwordEncoder.encode(client.getPassword()));
 		client.setPassword(passwordEncoder.encode(client.getPassword()));
 		//client.setRole("CLIENT");
 		//client.setUsername(client.getEmail());
@@ -69,23 +66,17 @@ public class ClientController {
 
 	public String listClient() {
 		this.listeClient = this.clientRepository.findAll();
-//		for (Client client : listeClient) {
-//			System.out.println("----------->" + client.getNom());
-//		}
 		return "/clientPackage/listClient.xhtml?faces-redirect=true";
 	}
 
 	public String detailsClient(int id) {
 		this.client = this.clientRepository.getOne(id);
-		System.out.println("----->" + client.getNom());
-		// System.out.println("parfait" + id);
 		return "/clientPackage/detailClient.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
 	public String updateClient(int id) {
 		this.client = this.clientRepository.getOne(id);
-		System.out.println("----->" + client.getNom());
 		return "/clientPackage/inscriptionClient.xhtml?faces-redirect=true";
 	}
 
