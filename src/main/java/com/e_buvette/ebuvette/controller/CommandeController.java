@@ -140,6 +140,7 @@ public class CommandeController {
 	public String detailsCommande(int id) {
 		this.ligneCommandes = this.ligneCommandeRepository.findByCommandeId(id);
 		this.commande = this.commandeRepository.getOne(id);
+		System.out.println("----------------------> hi "+commande.getStatutCommande());
 		return "/vendeur/detailCommande.xhtml?faces-redirect=true";
 	}
 	
@@ -158,5 +159,6 @@ public class CommandeController {
 	public void setListeCommande(List<Commande> listeCommande) {
 		this.listeCommande = listeCommande;
 	}
+	
 
 }

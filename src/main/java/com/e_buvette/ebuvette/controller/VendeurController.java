@@ -45,7 +45,7 @@ public class VendeurController {
 	@RequestAction
 	@IgnorePostback
 	public String home() {
-		return "vendeur/accueilVendeur.xhtml?faces-redirect=true";
+		return "/vendeur/accueilVendeur.xhtml?faces-redirect=true";
 	}
 
 	public String formulaireInscription() {
@@ -63,7 +63,7 @@ public class VendeurController {
 		vendeurRepository.flush();
 		// client = new Client();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Votre opération a été Bien effectué."));
-		return "../seconnecter.xhtml?faces-redirect=true";
+		return "/vendeur/seconnecter.xhtml?faces-redirect=true";
 	}
 
 	public String listVendeur() {

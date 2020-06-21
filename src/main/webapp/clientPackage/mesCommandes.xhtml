@@ -40,6 +40,15 @@
 					<strong> <h:outputText
 							value="Montant total à payer : #{commande.prixTotal} DH"
 							style="float : left ; color : green ; font-size : larger ; " />
+						<p:spacer width="200" height="0" /> 
+							<p:commandButton value="Prête" id="withIcon1"
+								style="margin-top:10px; background-color: ghostwhite;color: blue;"
+								rendered="#{commande.statutCommande}"/>
+						
+							<p:commandButton value="En attente" id="withIcon2"
+								style="margin-top:10px; background-color: ghostwhite;color: blue;"
+								rendered="#{not commande.statutCommande}" />
+						
 					</strong>
 					<br />
 					<br />

@@ -19,25 +19,37 @@
 					<center>Liste de mes Reservations</center>
 				</strong>
 			</h1>
-			<br/><br/><br/>
-			<p:dataTable var="reservation" value="#{reservationController.listeReservation}">
-			<p:column headerText="Id">
-				<h:outputText value="#{reservation.id}" />
-			</p:column>
+			<br />
+			<br />
+			<br />
+			<p:dataTable var="reservation"
+				value="#{reservationController.listeReservation}">
+				<p:column headerText="Id">
+					<h:outputText value="#{reservation.id}" />
+				</p:column>
 
-			<p:column headerText="Date et heure">
-				<h:outputText value="#{reservation.dateReservation} #{reservation.heureReservation}" />
-			</p:column>
+				<p:column headerText="Date et heure">
+					<h:outputText
+						value="#{reservation.dateReservation} #{reservation.heureReservation}" />
+				</p:column>
 
-			<p:column headerText="Nombre Place ">
-				<h:outputText value="#{reservation.nombrePlace}" />
-			</p:column>
+				<p:column headerText="Nombre Place ">
+					<h:outputText value="#{reservation.nombrePlace}" />
+				</p:column>
 
-			<p:column headerText="Statut ">
-				<h:outputText value="#{reservations.status}" />
-			</p:column>
-		</p:dataTable>
-		
+				<p:column headerText="Statut ">
+				<center>
+					<p:commandButton value="Prête" id="withIcon1"
+						style="margin-top:10px; background-color: ghostwhite;color: blue;"
+						rendered="#{reservations.status}" />
+
+					<p:commandButton value="En attente" id="withIcon2"
+						style="margin-top:10px; background-color: ghostwhite;color: blue;"
+						rendered="#{not reservations.status}" />
+				</center>
+				</p:column>
+			</p:dataTable>
+
 		</center>
 	</ui:define>
 </ui:composition>

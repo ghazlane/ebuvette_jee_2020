@@ -38,7 +38,7 @@
 								style="font-weight: bold" />
 						</center>
 						<br />
-						<center>
+						<center >
 							<h:panelGrid columns="3" cellpadding="5">
 
 								<i class="fas fa-store"></i>
@@ -88,7 +88,7 @@
 						<center style="color: green; margin-top: 20 px;">
 							<i class="fas fa-clock"></i>
 							<h:outputText
-								value="  De #{ligneCommande.produit.vendeur.horaireOuverture} à #{produit.vendeur.horaireFermeture}"
+								value="  De #{ligneCommande.produit.vendeur.horaireOuverture} à #{ligneCommande.produit.vendeur.horaireFermeture}"
 								style="font-weight: bold; color : green;" />
 						</center>
 
@@ -99,13 +99,13 @@
 			<br /><br /><br /><br />
 			<center>
 				<p:selectBooleanButton id="value1"
-					value="#{commande.statutCommande}"
+					value="#{commandeController.commande.statutCommande}"
 					offLabel="En attente" onLabel="Prete" style="width:120px" />
 			</center>
 			<br />
 			<center>
 				<p:commandButton value="Valider" id="withIcon2"
-					action="#{commandeController.changeStatus()}"
+					action="#{commandeController.changeStatus(commandeController.commande)}"
 					style="margin-top:10px; background-color: ghostwhite;color: blue;"
 					 />
 

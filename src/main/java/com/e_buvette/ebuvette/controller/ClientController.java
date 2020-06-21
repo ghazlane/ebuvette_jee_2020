@@ -3,6 +3,8 @@ package com.e_buvette.ebuvette.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.transaction.Transactional;
 
 import org.ocpsoft.rewrite.annotation.Join;
@@ -61,6 +63,7 @@ public class ClientController {
 		//client.setUsername(client.getEmail());
 		clientRepository.save(client);
 		clientRepository.flush();
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Votre opération a été Bien effectué."));
 		return "/clientPackage/messageSucces.xhtml?faces-redirect=true";
 	}
 
