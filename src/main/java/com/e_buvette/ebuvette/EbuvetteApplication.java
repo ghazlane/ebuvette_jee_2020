@@ -6,6 +6,8 @@ import javax.faces.webapp.FacesServlet;
 import javax.servlet.DispatcherType;
 
 import org.ocpsoft.rewrite.servlet.RewriteFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -16,9 +18,24 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @ComponentScan({ "com.e_buvette.ebuvette" })
 public class EbuvetteApplication {
+	static Logger logger = LoggerFactory.getLogger(EbuvetteApplication.class);
 
 	public static void main(String[] args) {
+//		SpringApplication application = new SpringApplication(SpringBootWriteConsoleLogApplication.class);
+//		Properties properties = new Properties();
+//		properties.setProperty("spring.main.banner-mode", "log");
+//		properties.setProperty("logging.file", "logs/test.log");
+//		properties.setProperty("logging.pattern.console", "");
+//		application.setDefaultProperties(properties);
+
+		logger.trace("A TRACE Message");
+		logger.debug("A DEBUG Message");
+		logger.info("An INFO Message");
+		logger.warn("A WARN Message");
+		logger.error("An ERROR Message");
+
 		SpringApplication.run(EbuvetteApplication.class, args);
+
 	}
 
 	@Bean

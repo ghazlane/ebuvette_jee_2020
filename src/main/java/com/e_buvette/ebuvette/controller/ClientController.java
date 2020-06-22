@@ -10,6 +10,8 @@ import org.ocpsoft.rewrite.annotation.RequestAction;
 import org.ocpsoft.rewrite.el.ELBeanName;
 import org.ocpsoft.rewrite.faces.annotation.Deferred;
 import org.ocpsoft.rewrite.faces.annotation.IgnorePostback;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -27,6 +29,8 @@ public class ClientController {
 	@Autowired
 	private ClientRepository clientRepository;
 
+	Logger logger = LoggerFactory.getLogger(ClientController.class);
+
 	private Client client;
 	private List<Client> listeClient;
 
@@ -40,6 +44,11 @@ public class ClientController {
 	@RequestAction
 	@IgnorePostback
 	public String home() {
+		logger.trace("A TRACE Message");
+		logger.debug("A DEBUG Message");
+		logger.info("An INFO Message");
+		logger.warn("A WARN Message");
+		logger.error("An ERROR Message");
 		return "/clientPackage/accueilClient.xhtml?faces-redirect=true";
 	}
 
