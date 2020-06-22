@@ -3,7 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="../templateClient.xhtml">
+	xmlns:p="http://primefaces.org/ui" template="../templateVendeur.xhtml">
 	<ui:define name="content">
 		<!-- Google Fonts -->
 		<link
@@ -16,7 +16,7 @@
 		<center>
 			<h1 style="margin-top: 30px; color: green;">
 				<strong> <br />
-					<center>Liste de mes commandes</center>
+					<center>Liste des commandes</center>
 				</strong>
 			</h1>
 		</center>
@@ -25,7 +25,7 @@
 		<br />
 		<center>
 			<p:repeat value="#{commandeController.listeCommande}" var="commande">
-				<p:panel id="pnl" header="Mon panier N° #{commande.id}"
+				<p:panel id="pnl" header="Panier N° #{commande.id}"
 					style="margin-bottom:10px; width : 70%;">
 					<p:messages id="messages" />
 					<h:panelGrid columns="1" cellpadding="5"
@@ -33,22 +33,18 @@
 					</h:panelGrid>
 					<br />
 					<br />
-					<h:outputText value="Temp estimé de préparation : 20 Min"
+					<h:outputText value="Client : #{commande.client.nom} #{commande.client.prenom}"
 						style="float : center ; color : orange ; " />
 					<br />
 					<br />
 					<strong> <h:outputText
 							value="Montant total à payer : #{commande.prixTotal} DH"
 							style="float : left ; color : green ; font-size : larger ; " />
-						<p:spacer width="200" height="0" /> 
-							<p:commandButton value="Prête" id="withIcon1"
+							<p:spacer width="200" height="0" /> 
+							<p:commandButton value="Détail" id="withIcon1"
+								action="#{commandeController.detailsCommande(commande.id)}" 
 								style="margin-top:10px; background-color: ghostwhite;color: blue;"
-								rendered="#{commande.statutCommande}"/>
-						
-							<p:commandButton value="En attente" id="withIcon2"
-								style="margin-top:10px; background-color: ghostwhite;color: blue;"
-								rendered="#{not commande.statutCommande}" />
-						
+								icon="fa-plus-square" />
 					</strong>
 					<br />
 					<br />

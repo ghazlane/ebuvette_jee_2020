@@ -3,6 +3,8 @@ package com.e_buvette.ebuvette.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.transaction.Transactional;
 
 import org.ocpsoft.rewrite.annotation.Join;
@@ -14,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.e_buvette.ebuvette.models.Adresse;
@@ -28,6 +31,8 @@ import com.e_buvette.ebuvette.repository.ClientRepository;
 public class ClientController {
 	@Autowired
 	private ClientRepository clientRepository;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	Logger logger = LoggerFactory.getLogger(ClientController.class);
 
@@ -53,39 +58,34 @@ public class ClientController {
 	}
 
 	public String formulaireInscription() {
-//		System.out.println("je suis ici");
 		this.client = new Client();
 		this.client.setAdresse(new Adresse());
 		return "/clientPackage/inscriptionClient.xhtml?faces-redirect=true";
 	}
 
 	public String saveClient() {
-		System.out.println("je suis save client");
+		client.setPassword(passwordEncoder.encode(client.getPassword()));
+		//client.setRole("CLIENT");
+		//client.setUsername(client.getEmail());
 		clientRepository.save(client);
 		clientRepository.flush();
-		// client = new Client();
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Votre opération a été Bien effectué."));
 		return "/clientPackage/messageSucces.xhtml?faces-redirect=true";
 	}
 
 	public String listClient() {
 		this.listeClient = this.clientRepository.findAll();
-//		for (Client client : listeClient) {
-//			System.out.println("----------->" + client.getNom());
-//		}
 		return "/clientPackage/listClient.xhtml?faces-redirect=true";
 	}
 
 	public String detailsClient(int id) {
 		this.client = this.clientRepository.getOne(id);
-		System.out.println("----->" + client.getNom());
-		// System.out.println("parfait" + id);
 		return "/clientPackage/detailClient.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
 	public String updateClient(int id) {
 		this.client = this.clientRepository.getOne(id);
-		System.out.println("----->" + client.getNom());
 		return "/clientPackage/inscriptionClient.xhtml?faces-redirect=true";
 	}
 
@@ -111,4 +111,6 @@ public class ClientController {
 		this.listeClient = listeClient;
 	}
 
+
+	
 }

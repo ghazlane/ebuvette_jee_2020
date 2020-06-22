@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="../templateInscription.xhtml">
+
+	<ui:define name="content">
+		
+				
+		<div class="card-body" style="padding-top: 100px; margin-top: 100px">
+			<h2 class="title">Se connecter</h2>
+			<h:form id="id_connexion_formulaire">
+				<p:messages id="id_inscription_messages" />
+				<p:outputLabel value="Login failed!" styleClass="red"
+       				 rendered="${!empty param['error']}" />
+				<div class="input-group">
+					<p:inputText id ="username" class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"  style="width: 400px;"
+						value="" required="true">
+						<f:validateRegex
+							pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+					</p:inputText>
+				</div>
+				<div class="input-group">
+					<p:password id="password" class="input--style-2 input" placeholder="Mot de passe" 
+						value=""   />
+				</div>
+				<div class="p-t-30">
+					<p:commandButton class="btn btn--radius btn--green " value="Se connecter"
+										 action="#{vendeurController.home}"
+										 />
+				</div>
+			</h:form>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

@@ -62,19 +62,21 @@ public class ContactController {
 		// client = new Client();
 		return "/clientPackage/panierBienAjoute.xhtml?faces-redirect=true";
 	}
+	
+	public String saveContactVendeur() {
+		contactRepository.save(contact);
+		contactRepository.flush();
+		return "/vendeur/messageSucces.xhtml?faces-redirect=true";
+	}
 
 	public String listContact() {
 		this.listeContact = this.contactRepository.findAll();
-//		for (Client client : listeClient) {
-//			System.out.println("----------->" + client.getNom());
-//		}
 		return "/contact/listContact.xhtml?faces-redirect=true";
 	}
 
 	public String detailsContact(int id) {
 		this.contact = this.contactRepository.getOne(id);
 		System.out.println("----->" + contact.getNom());
-		// System.out.println("parfait" + id);
 		return "/contact/detailContact.xhtml?faces-redirect=true";
 	}
 

@@ -36,13 +36,8 @@ public class ProduitController {
 	private List<Produit> listeProduit;
 	private List<LigneCommande> ligneCommande;
 
-//	private UploadedFile file;
-
-//	private Part file2;
-
 	public ProduitController() {
 		this.produit = new Produit();
-//		this.client.setAdresse(new Adresse());
 		this.listeProduit = new ArrayList<>();
 		this.ligneCommande = new ArrayList<>();
 	}
@@ -55,11 +50,9 @@ public class ProduitController {
 	}
 
 	public String nouveauProduit() {
-//		System.out.println("je suis ici");
 		this.produit = new Produit();
 		this.produit.setStock(1);
-//		this.produit.setAdresse(new Adresse());
-		return "/produit/nouveauProduit.xhtml?faces-redirect=true";
+		return "/vendeur/nouveauProduit.xhtml?faces-redirect=true";
 	}
 
 	public String saveProduit() {
@@ -68,45 +61,45 @@ public class ProduitController {
 		produitRepository.save(produit);
 		produitRepository.flush();
 		// client = new Client();
-		return "/produit/messageSucces.xhtml?faces-redirect=true";
+		return "/vendeur/messageSucces.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
 	public String listProduit() {
 		this.listeProduit = this.produitRepository.findAll();
-//		for (Client client : listeClient) {
-//			System.out.println("----------->" + client.getNom());
-//		}
 		return "/produit/listProduit.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
 	public String listProduitForClient() {
 		this.listeProduit = this.produitRepository.findAll();
-//		for (Client client : listeClient) {
-//			System.out.println("----------->" + client.getNom());
-//		}
 		return "/clientPackage/listProduitClient.xhtml?faces-redirect=true";
+	}
+	
+	@Transactional
+	public String listProduitForVendeur() {
+		this.listeProduit = this.produitRepository.findByVendeurId(this.vendeurRepository.getOne(21).getId());
+		return "/vendeur/listProduitVendeur.xhtml?faces-redirect=true";
 	}
 
 	public String detailsProduit(int id) {
 		this.produit = this.produitRepository.getOne(id);
-		System.out.println("----->" + produit.getNom());
-		// System.out.println("parfait" + id);
 		return "/produit/detailProduit.xhtml?faces-redirect=true";
 	}
-
+	public String detailsProduitForVendeur(int id) {
+		this.produit = this.produitRepository.getOne(id);
+		return "/vendeur/detailProduit.xhtml?faces-redirect=true";
+	}
 	@Transactional
 	public String updateProduit(int id) {
 		this.produit = this.produitRepository.getOne(id);
-		System.out.println("----->" + produit.getNom());
 		return "/clientPackage/inscriptionClient.xhtml?faces-redirect=true";
 	}
 
 	@Transactional
 	public String deleteProduit(int id) {
 		this.produitRepository.delete(this.produitRepository.getOne(id));
-		return this.listProduit();
+		return this.listProduitForVendeur();
 	}
 
 	public Produit getProduit() {

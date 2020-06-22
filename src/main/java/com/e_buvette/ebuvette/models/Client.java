@@ -28,6 +28,7 @@ public class Client implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
+	
 //    @Size(max = 100)
 //    @Column(unique = true)
 	@NotNull
@@ -43,6 +44,7 @@ public class Client implements Serializable {
 	private Adresse adresse;
 	private String password;
 
+
 //	@OneToMany(mappedBy = "commande")
 //	private Set<Commande> listCommande;
 
@@ -52,9 +54,13 @@ public class Client implements Serializable {
 	public Client() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
-	public Client(String nom, String prenom, String email, String numeroTelephone, Adresse adresse, String password) {
+
+	public Client(int id, String nom, String prenom, String email, String numeroTelephone, Adresse adresse,
+			String password) {
 		super();
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
@@ -63,13 +69,30 @@ public class Client implements Serializable {
 		this.password = password;
 	}
 
+
 	public int getId() {
 		return id;
 	}
 
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
 
 	public String getNom() {
 		return nom;
@@ -87,14 +110,6 @@ public class Client implements Serializable {
 		this.prenom = prenom;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getNumeroTelephone() {
 		return numeroTelephone;
 	}
@@ -110,14 +125,7 @@ public class Client implements Serializable {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	
 
 //	public List<Commande> getListCommande() {
 //		return listCommande;
@@ -126,6 +134,18 @@ public class Client implements Serializable {
 //	public void setListCommande(List<Commande> listCommande) {
 //		this.listCommande = listCommande;
 //	}
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

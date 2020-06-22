@@ -29,7 +29,7 @@ public class Reservation implements Serializable {
 	private String dateReservation;
 	private String heureReservation;
 	private int nombrePlace;
-	private String status;
+	private Boolean status;
 
 	public Reservation() {
 		super();
@@ -90,11 +90,11 @@ public class Reservation implements Serializable {
 		this.heureReservation = heureReservation;
 	}
 
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 

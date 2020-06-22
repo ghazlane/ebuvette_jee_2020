@@ -2,7 +2,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="templateInscription.xhtml">
+	xmlns:p="http://primefaces.org/ui" template="../templateInscription.xhtml">
 
 	<ui:define name="content">
 		
@@ -11,20 +11,22 @@
 			<h2 class="title">Se connecter</h2>
 			<h:form id="id_connexion_formulaire">
 				<p:messages id="id_inscription_messages" />
+				<p:outputLabel value="Login failed!" styleClass="red"
+       				 rendered="${!empty param['error']}" />
 				<div class="input-group">
-					<p:inputText class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"  style="width: 400px;"
+					<p:inputText id ="username" class="input--style-2 input" placeholder="Email" validatorMessage="Votre adresse mail est invalide"  style="width: 400px;"
 						value="" required="true">
 						<f:validateRegex
 							pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
 					</p:inputText>
 				</div>
 				<div class="input-group">
-					<p:password class="input--style-2 input" placeholder="Mot de passe" 
-						value=""  required="true" feedback="true" />
+					<p:password id="password" class="input--style-2 input" placeholder="Mot de passe" 
+						value=""   />
 				</div>
 				<div class="p-t-30">
 					<p:commandButton class="btn btn--radius btn--green " value="Se connecter"
-										update="id_connexion_formulaire"
+										 action="#{clientController.home}"
 										 />
 				</div>
 			</h:form>

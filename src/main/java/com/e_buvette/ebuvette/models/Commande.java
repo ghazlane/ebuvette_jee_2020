@@ -31,7 +31,7 @@ public class Commande implements Serializable {
 	@JoinColumn(name = "vendeur")
 	private Vendeur vendeur;
 
-	private String statutCommande;
+	private Boolean statutCommande;
 	private String dateHeureCommande;
 	private String dateHeureLivraison;
 	private float prixTotal;
@@ -43,7 +43,7 @@ public class Commande implements Serializable {
 		super();
 	}
 
-	public Commande(int id, Client client, Vendeur vendeur, String statutCommande, String dateHeureCommande,
+	public Commande(int id, Client client, Vendeur vendeur, Boolean statutCommande, String dateHeureCommande,
 			String dateHeureLivraison) {
 		super();
 		this.id = id;
@@ -54,7 +54,7 @@ public class Commande implements Serializable {
 		this.dateHeureLivraison = dateHeureLivraison;
 	}
 
-	public Commande(Client client, Vendeur vendeur, String statutCommande, String dateHeureCommande,
+	public Commande(Client client, Vendeur vendeur, Boolean statutCommande, String dateHeureCommande,
 			String dateHeureLivraison) {
 		super();
 		this.client = client;
@@ -88,11 +88,11 @@ public class Commande implements Serializable {
 		this.vendeur = vendeur;
 	}
 
-	public String getStatutCommande() {
+	public Boolean getStatutCommande() {
 		return statutCommande;
 	}
 
-	public void setStatutCommande(String statutCommande) {
+	public void setStatutCommande(Boolean statutCommande) {
 		this.statutCommande = statutCommande;
 	}
 
